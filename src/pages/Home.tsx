@@ -8,7 +8,7 @@ export default function HomePage() {
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-12">
           <TypeAnimation
             sequence={[
-              "Hello, world! I'm Ishpreet",
+              "Hello, world! I'm Ishpreet👋",
               2500,
               'I code things.',
             ]}

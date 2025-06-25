@@ -1,6 +1,8 @@
 ---
-import Hero from '../components/Hero.jsx';
+import Hero from '../components/Hero';
 import '../styles/global.css';
+import Navbar from '../components/Navbar';
+import Background from '../components/Background'; // Update this path based on your project structure
 ---
 
 <html lang="en">
@@ -8,10 +10,12 @@ import '../styles/global.css';
     <meta charset="UTF-8" />
     <title>Ishpreet's Website</title>
   </head>
-  <body class="bg-gray-100 text-gray-900 font-sans">
-    <main class="min-h-screen p-0">
+  <body class="scroll-smooth">
+    <Background client:load/>
+    <Navbar client:load />
+    <section id="home" class="min-h-screen p-0">
       <Hero client:load />
-    </main>
+    </section>
   </body>
 </html>
 

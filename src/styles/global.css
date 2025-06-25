@@ -15,10 +15,24 @@
   }
 }
 
+@layer components {
+  .underline-animation {
+    @apply relative p-0;
+  }
+
+  .underline-animation::after {
+    content: '';
+    @apply absolute w-full h-1 left-0 bottom-[-5px] bg-cyan-500 origin-right scale-x-0 transition-transform duration-300 rounded-lg;
+  }
+
+  .underline-animation:hover::after {
+    @apply origin-left scale-x-100 rounded-lg;
+  }
+}
+
+
 :root {
     --background-color: #0a0422; /* background colour */
     --Bubble-color: 255, 255, 255; /* star colour */
     --accent-Bubble-color: rgb(72, 4, 230);    /* Accent stars: Orange */
   }
-
- /* Continue adding your custom font here */
