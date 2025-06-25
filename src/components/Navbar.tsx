@@ -7,7 +7,7 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
-const Navbar: FC = () => {
+const navbar: FC = () => {
   return (
     <nav className="sticky top-6 z-50 bg-white/10 backdrop-blur-sm border border-white/10 px-8 py-5 rounded-full mx-auto max-w-md drop-shadow-md text-white text-lg">
       <ul className="flex justify-center gap-8 list-none m-0 p-0">
@@ -26,4 +26,4 @@ const Navbar: FC = () => {
   );
 };
 
-export default Navbar;
+export default navbar;

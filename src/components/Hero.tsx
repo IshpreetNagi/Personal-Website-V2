@@ -8,7 +8,6 @@ import HomePage from '../pages/Home'; // Update this path as well
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      <Background /> {/* Background component for the canvas animation */}
       <HomePage /> {/* Content component */}
     </section>
   );
