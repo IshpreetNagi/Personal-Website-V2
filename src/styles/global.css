@@ -28,6 +28,14 @@
   .underline-animation:hover::after {
     @apply origin-left scale-x-100 rounded-lg;
   }
+
+  .underline-animation-icon::after {
+    bottom: -10px;
+  }
+
+  .underline-animation-icon:hover::after {
+    bottom: -10px;
+  }
 }
 
 
