@@ -6,12 +6,13 @@
 @tailwind utilities;
 
 @layer base {
-  h1 {
-    @apply font-mono
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
   }
 
-  p {
-    @apply font-sans
+  h1 {
+    @apply font-mono
   }
 }
 

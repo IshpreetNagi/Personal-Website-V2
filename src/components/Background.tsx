@@ -26,7 +26,7 @@ export default function Background() {
 
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = document.body.scrollHeight;
     };
 
     const initBubbles = () => {
