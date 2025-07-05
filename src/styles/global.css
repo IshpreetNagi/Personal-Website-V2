@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+
+}
+
 @layer base {
   html {
     @apply font-sans;
@@ -37,6 +41,11 @@
   .underline-animation-icon:hover::after {
     bottom: -10px;
   }
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px white/5;
 }
 
 
