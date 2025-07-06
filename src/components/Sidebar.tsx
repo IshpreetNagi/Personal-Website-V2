@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import "../styles/global.css"; // Ensure global styles are imported
 
 
@@ -12,7 +12,7 @@ const SocialIcons = () => (
       <FaLinkedin className="w-8 h-8" />
     </a>
     <a href="https://x.com/socialish_" target="_blank" rel="noopener noreferrer" aria-label="X (formerly Twitter)" className="underline-animation underline-animation-icon">
-      <FaTwitter className="w-8 h-8" />
+      <img src="https://img.icons8.com/ios/50/FFFFFF/twitterx--v2.png" className="w-8 h-8"/>
     </a>
   </div>
 );

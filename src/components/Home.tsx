@@ -13,7 +13,7 @@ export default function HomePage() {
               2500,
               "",
               500,
-              "I code stuff",
+              "I code things",
             ]}
             wrapper="span"
             speed={9}

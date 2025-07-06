@@ -41,12 +41,16 @@
   .underline-animation-icon:hover::after {
     bottom: -10px;
   }
+
+  .box-select-hover {
+    @apply relative rounded-lg border-2 border-transparent transition-colors duration-300;
+  }
+
+  .box-select-hover:hover {
+    @apply border-cyan-500;
+  }
 }
 
-.outline-text {
-  color: transparent;
-  -webkit-text-stroke: 1px white/5;
-}
 
 
 :root {
