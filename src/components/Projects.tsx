@@ -7,7 +7,7 @@ export default function HomePage() {
     <div className="flex flex-col justify-start z-10">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
         <div className="flex flex-col justify-start z-10 overflow-hidden relative">
-                      <div className="text-[45px] text-white mb-12 pl-74"> My Projects </div>         
+                      <div className="text-[50px] text-white mb-11 pl-74"> My Projects </div>         
 
           <div className="flex flex-row gap-12 justify-center items-center flex-wrap max-w-[2000px]">
             <a href="https://github.com/IshpreetNagi/Tempestuous-Turrets" target="_blank" rel="noopener noreferrer">
@@ -35,7 +35,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         C#
@@ -48,7 +48,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         Unity
@@ -61,7 +61,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         Git
@@ -74,7 +74,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         Azure
@@ -87,7 +87,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         Photoshop
@@ -124,7 +124,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         Astro
@@ -137,7 +137,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         Tailwind CSS
@@ -150,7 +150,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         TypeScript
@@ -163,7 +163,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         JavaScript
@@ -176,7 +176,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         React
@@ -213,7 +213,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         Tailwind CSS
@@ -226,7 +226,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         TypeScript
@@ -239,7 +239,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         JavaScript
@@ -276,7 +276,7 @@ export default function HomePage() {
                           className="w-8 h-8"
                         />
                         <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-xs rounded py-1 px-2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         Python

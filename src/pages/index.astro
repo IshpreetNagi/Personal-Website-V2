@@ -7,12 +7,14 @@ import Background from '../components/Background';
 import Home from '../components/Home';
 import About from '../components/About';
 import Projects from '../components/Projects';
+
+const year = new Date().getFullYear();
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Ishpreet's Website</title>
+    <title>Ishpreet Nagi</title>
   </head>
   <body>
     <Background client:load/>
@@ -27,6 +29,9 @@ import Projects from '../components/Projects';
     <section id="projects" class="flex items-center justify-center relative min-h-screen pt-10 overflow-hidden">
       <Projects client:load />
     </section>
+    <footer class="text-center text-white/40 text-xs py-4">
+      <p>&copy; {year} Ishpreet Nagi. All rights reserved.</p>
+    </footer>
   </body>
 </html>
 

@@ -5,7 +5,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col justify-start z-10">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
-        <div className="text-[45px] text-white mb-12 pl-4">
+        <div className="text-[50px] text-white mb-11 pl-4">
           A bit about me...
         </div>
 
