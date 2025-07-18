@@ -156,7 +156,7 @@ export default function HomePage() {
                         TypeScript
                         </div>
                       </div>
-                      <div className="relative group inline-block">
+                      {/* <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
                           alt="JavaScript Icon"
@@ -168,7 +168,7 @@ export default function HomePage() {
                                         transition-opacity duration-300 whitespace-nowrap z-50">
                         JavaScript
                         </div>
-                      </div>
+                      </div> */}
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
