@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
+import MusicPlayer from './MusicPlayer';
 
 
 export default function HomePage() {
   return (
     <div className="flex flex-col justify-start z-10">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
-        <div className="text-[50px] text-white mb-11 pl-4">
+        <div className="text-[52px] text-white mb-11 pl-0">
           A bit about me...
         </div>
 
@@ -18,7 +19,7 @@ export default function HomePage() {
                 className="rounded-3xl object-cover w-144 h-144 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
               />
             </div>
-            <div className="flex-shrink-0 w-192 h-144 overflow-auto text-left max-w-4xl mx-auto pl-8 pt-10 text-white text-xl">
+            <div className="flex-shrink-0 w-192 h-144 overflow-auto text-left max-w-4xl mx-auto pl-8 pt-2 text-white text-xl">
               According to all known laws of aviation, there is no way a bee should be able to fly.
               Its wings are too small to get its fat little body off the ground.
               The bee, of course, flies anyway because bees don't care what humans think is impossible.
@@ -43,6 +44,9 @@ export default function HomePage() {
               Very proud.
             </div>
           </section>
+        </div>
+        <div className="flex items-center justify-center mt-8">
+          <MusicPlayer />
         </div>
       </motion.div>
     </div>

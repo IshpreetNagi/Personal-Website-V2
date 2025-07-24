@@ -7,7 +7,7 @@ export default function HomePage() {
     <div className="flex flex-col justify-start z-10">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
         <div className="flex flex-col justify-start z-10 overflow-hidden relative">
-                      <div className="text-[50px] text-white mb-11 pl-74"> My Projects </div>         
+                      <div className="text-[52px] text-white mb-11 pl-68"> My Projects </div>         
 
           <div className="flex flex-row gap-12 justify-center items-center flex-wrap max-w-[2000px]">
             <a href="https://github.com/IshpreetNagi/Tempestuous-Turrets" target="_blank" rel="noopener noreferrer">
@@ -99,7 +99,7 @@ export default function HomePage() {
               </div>
             </a>
 
-            <a href="https://github.com/IshpreetNagi/McMaster-Room-Booking-Portal" target="_blank" rel="noopener noreferrer"> /* FIX THE LINK HERE */
+            <a href="https://github.com/IshpreetNagi/Personal-Website-V2" target="_blank" rel="noopener noreferrer">
               <div className="flex bg-white/5 backdrop-blur-sm border border-white/5 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">

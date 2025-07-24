@@ -14,9 +14,13 @@ export default function HomePage() {
               "",
               500,
               "I code things",
+              2500,
+              "",
+              250,
             ]}
             wrapper="span"
             speed={9}
+            repeat={Infinity}
           />
         </h1>
         <p className="text-lg sm:text-xl text-gray-300 mb-8">
