@@ -61,7 +61,7 @@ const Sidebar: FC = () => {
   return (
     <div className="flex flex-col items-center fixed bottom-16 left-3 z-50 gap-28">
       <div className="-rotate-90 text-white/60 text-4xl">Ishpreet Nagi</div>
-      <nav className=" bg-white/5 backdrop-blur-sm border-r border-white/5 rounded-2xl w-16 drop-shadow-md text-white text-lg">
+      <nav className=" bg-white/5 backdrop-blur-sm border-r border-white/10 rounded-2xl w-16 drop-shadow-md text-white text-lg">
         <ul className="list-none m-0 py-7">
           <li>
             <SocialIcons />

@@ -4,6 +4,31 @@ interface TrackInfo {
   name: string;
   artist: { ['#text']: string };
   album: { ['#text']: string };
+  image: { ['#text']: string; size : string }[];
+}
+
+function Waves() {
+  const [heights, setHeights] = useState([10, 15, 7, 12, 20]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeights(heights.map(() => 5 + Math.floor(Math.random() * 20)));
+    }, 300);
+
+    return () => clearInterval(interval);
+  }, [heights]);
+
+  return (
+    <div className="flex space-x-1 mb-2 justify-center items-end h-8">
+      {heights.map((height, i) => (
+        <div
+          key={i}
+          style={{ height: `${height}px` }}
+          className="w-1 bg-[rgb(29,185,84)] rounded transition-all duration-300 ease-in-out"
+        />
+      ))}
+    </div>
+  );
 }
 
 function MusicPlayer() {
@@ -30,24 +55,48 @@ function MusicPlayer() {
   }, []);
 
   return (
-    <div>
+    <div className="text-white">
       {nowPlaying ? (
-        <div>
-          <h2>Now Playing</h2>
-          <p>{nowPlaying.name} by {nowPlaying.artist['#text']}</p>
-          <p>Album: {nowPlaying.album['#text']}</p>
+        <div className="flex flex-col mt-6">
+          <h2 className='mb-5'>Currently vibing to:</h2>
+          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden">
+            <div className="relative w-20 h-20 flex-shrink-0">
+              <img
+                src={nowPlaying.image.find(img => img.size === 'extralarge')?.['#text'] || ''}
+                alt="Album Art"
+                className="w-full h-full object-cover rounded-2xl shadow-lg "
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-2xl">
+                <Waves />
+              </div>
+            </div>
+            <div className="flex flex-col ml-6 gap-1">
+              <p className='text-xl'>{nowPlaying.name}</p>
+              <p className='text-sm'>{nowPlaying.artist['#text']}</p>
+            </div>
+          </div>
+        </div>
+      ) :
+      lastPlayed ? (
+        <div className="flex flex-col mt-6">
+          <h2 className='mb-5'>Previously vibing to:</h2>
+          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden">
+            <div className="relative w-20 h-20 flex-shrink-0">
+              <img
+                src={lastPlayed.image.find(img => img.size === 'extralarge')?.['#text'] || ''}
+                alt="Album Art"
+                className="w-full h-full object-cover rounded-2xl shadow-lg "
+              />
+            </div>
+            <div className="flex flex-col ml-6 gap-1">
+              <p className='text-xl'>{lastPlayed.name}</p>
+              <p className='text-sm'>{lastPlayed.artist['#text']}</p>
+            </div>
+          </div>
         </div>
       ) : (
-        <div>
-          <h2>Previous Song</h2>
-          {lastPlayed ? (
-            <div>
-              <p>{lastPlayed.name} by {lastPlayed.artist['#text']}</p>
-              <p>Album: {lastPlayed.album['#text']}</p>
-            </div>
-          ) : (
-            <p>No previous songs found.</p>
-          )}
+        <div className="mt-6">
+          <p>No track data found.</p>
         </div>
       )}
     </div>

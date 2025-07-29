@@ -11,7 +11,7 @@ export default function HomePage() {
 
           <div className="flex flex-row gap-12 justify-center items-center flex-wrap max-w-[2000px]">
             <a href="https://github.com/IshpreetNagi/Tempestuous-Turrets" target="_blank" rel="noopener noreferrer">
-              <div className="flex bg-white/5 backdrop-blur-sm border border-white/5 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
+              <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">
                     <img
@@ -43,7 +43,7 @@ export default function HomePage() {
                       </div>
                       <div className="relative group inline-block">
                         <img 
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-plain.svg"
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg"
                           alt="Unity Icon"
                           className="w-8 h-8"
                         />
@@ -100,7 +100,7 @@ export default function HomePage() {
             </a>
 
             <a href="https://github.com/IshpreetNagi/Personal-Website-V2" target="_blank" rel="noopener noreferrer">
-              <div className="flex bg-white/5 backdrop-blur-sm border border-white/5 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
+              <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">
                     <img
@@ -189,7 +189,7 @@ export default function HomePage() {
             </a>
 
             <a href="https://github.com/IshpreetNagi/McMaster-Room-Booking-Portal" target="_blank" rel="noopener noreferrer">
-              <div className="flex bg-white/5 backdrop-blur-sm border border-white/5 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
+              <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">
                     <img
@@ -252,7 +252,7 @@ export default function HomePage() {
             </a>
 
             <a href="https://github.com/IshpreetNagi/Arcade-Game-Emulator" target="_blank" rel="noopener noreferrer">
-              <div className="flex bg-white/5 backdrop-blur-sm border border-white/5 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
+              <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">
                     <img
