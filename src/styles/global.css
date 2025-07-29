@@ -51,10 +51,8 @@
   }
 }
 
-
-
 :root {
     --background-color: #0a0422; /* background colour */
     --Bubble-color: 255, 255, 255; /* star colour */
-    --accent-Bubble-color: rgb(72, 4, 230);    /* Accent stars: Orange */
+    --accent-Bubble-color: rgb(6,182,212);    /* Accent star colour */
   }
