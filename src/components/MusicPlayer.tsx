@@ -57,9 +57,9 @@ function MusicPlayer() {
   return (
     <div className="text-white">
       {nowPlaying ? (
-        <div className="flex flex-col mt-6">
-          <h2 className='mb-5'>Currently vibing to:</h2>
-          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden">
+        <div className="flex flex-col gap-3">
+          <h2 className='text-lg'>Currently vibing to:</h2>
+          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80">
             <div className="relative w-20 h-20 flex-shrink-0">
               <img
                 src={nowPlaying.image.find(img => img.size === 'extralarge')?.['#text'] || ''}
@@ -78,9 +78,9 @@ function MusicPlayer() {
         </div>
       ) :
       lastPlayed ? (
-        <div className="flex flex-col mt-6">
-          <h2 className='mb-5'>Previously vibing to:</h2>
-          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden">
+        <div className="flex flex-col gap-3">
+          <h2 className='text-lg'>Previously vibing to:</h2>
+          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80">
             <div className="relative w-20 h-20 flex-shrink-0">
               <img
                 src={lastPlayed.image.find(img => img.size === 'extralarge')?.['#text'] || ''}

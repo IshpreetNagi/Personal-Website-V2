@@ -15,8 +15,8 @@ export default function HomePage() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">
                     <img
-                      src={"/images/Last-Laugh.jpg"}
-                      alt="Picture of Ishpreet"
+                      src={"/images/tempestuous_turrets.png"}
+                      alt="Tempestuous Turrets Gameplay Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
                     />
                   </div>
@@ -145,6 +145,19 @@ export default function HomePage() {
                       </div>
                       <div className="relative group inline-block">
                         <img 
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                          alt="Git Icon"
+                          className="w-8 h-8"
+                        />
+                        <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
+                                        opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                                        transition-opacity duration-300 whitespace-nowrap z-50">
+                        Git
+                        </div>
+                      </div>
+                      <div className="relative group inline-block">
+                        <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
                           alt="TypeScript Icon"
                           className="w-8 h-8"
@@ -182,19 +195,6 @@ export default function HomePage() {
                         React
                         </div>
                       </div>
-                      <div className="relative group inline-block">
-                        <img 
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-                          alt="Git Icon"
-                          className="w-8 h-8"
-                        />
-                        <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-sm rounded py-1 px-2
-                                        opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                                        transition-opacity duration-300 whitespace-nowrap z-50">
-                        Git
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </section>
@@ -206,8 +206,8 @@ export default function HomePage() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">
                     <img
-                      src={"/images/Last-Laugh.jpg"}
-                      alt="Picture of Ishpreet"
+                      src={"/images/room_booking_portal.png"}
+                      alt="Room Booking Portal Homepage Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
                     />
                   </div>
@@ -258,6 +258,19 @@ export default function HomePage() {
                         JavaScript
                         </div>
                       </div>
+                      <div className="relative group inline-block">
+                        <img 
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                          alt="Git Icon"
+                          className="w-8 h-8"
+                        />
+                        <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
+                                      bg-gray-800 text-white text-sm rounded py-1 px-2
+                                        opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                                        transition-opacity duration-300 whitespace-nowrap z-50">
+                        Git
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </section>
@@ -269,8 +282,8 @@ export default function HomePage() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">
                     <img
-                      src={"/images/Last-Laugh.jpg"}
-                      alt="Picture of Ishpreet"
+                      src={"/images/python_arcade.JPG"}
+                      alt="Arcade Games Emulator Homepage Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
                     />
                   </div>

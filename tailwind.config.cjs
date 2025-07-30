@@ -35,6 +35,9 @@ module.exports = {
         '360': '90rem',
         '384': '96rem',
     },
+    scale: {
+      80: '0.8',
+    }
     },
   },
   plugins: [],
