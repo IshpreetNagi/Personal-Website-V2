@@ -21,13 +21,12 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mb-6">Tempestuous Turrets</div>
+                    <div className="text-xl font-semibold mt-6 mb-8">Tempestuous Turrets</div>
                     <div className="text-base text-white/70 pr-8 flex-grow">
-                      According to all known laws of aviation, there is no way a bee should be able to fly.
-                      Its wings are too small to get its fat little body off the ground.
-                      The bee, of course, flies anyway because bees don't care what humans think is impossible.
+                      A point and click local multiplayer game where you battle others across 
+                      various battlefields to be the last turret standing!
                     </div>
-                    <div className="flex flex-row gap-3 mt-4">
+                    <div className="flex flex-row gap-3 mt-10">
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-plain.svg" 
@@ -110,13 +109,11 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mb-6">This Website</div>
+                    <div className="text-xl font-semibold mt-6 mb-8">This Website</div>
                     <div className="text-base text-white/70 pr-8 flex-grow">
-                      According to all known laws of aviation, there is no way a bee should be able to fly.
-                      Its wings are too small to get its fat little body off the ground.
-                      The bee, of course, flies anyway because bees don't care what humans think is impossible.
+                      You are still here and looking around, so it’s not too bad, right?
                     </div>
-                    <div className="flex flex-row gap-3 mt-4">
+                    <div className="flex flex-row gap-3 mt-16">
                       <div className="relative group inline-block">
                         <img
                           src={"/images/astro-icon-light-gradient.svg"}
@@ -212,13 +209,12 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mb-6">McMaster Room Booking Portal</div>
+                    <div className="text-xl font-semibold mt-6 mb-8">McMaster Room Booking</div>
                     <div className="text-base text-white/70 pr-8 flex-grow">
-                      According to all known laws of aviation, there is no way a bee should be able to fly.
-                      Its wings are too small to get its fat little body off the ground.
-                      The bee, of course, flies anyway because bees don't care what humans think is impossible.
+                      A website to centralize and streamline the room booking process for the buildings 
+                      across the McMaster University campus. 
                     </div>
-                    <div className="flex flex-row gap-3 mt-4">
+                    <div className="flex flex-row gap-3 mt-10">
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
@@ -288,13 +284,12 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mb-6">Arcade Games Emulator</div>
+                    <div className="text-xl font-semibold mt-6 mb-8">Arcade Games Emulator</div>
                     <div className="text-base text-white/70 pr-8 flex-grow">
-                      According to all known laws of aviation, there is no way a bee should be able to fly.
-                      Its wings are too small to get its fat little body off the ground.
-                      The bee, of course, flies anyway because bees don't care what humans think is impossible.
+                      Three iconic games —Who Wants to Be a Millionaire, Whack-a-Mole, and Number Guesser 
+                      —are brought together and neatly wrapped in a single package. 
                     </div>
-                    <div className="flex flex-row gap-3 mt-4">
+                    <div className="flex flex-row gap-3 mt-5">
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"

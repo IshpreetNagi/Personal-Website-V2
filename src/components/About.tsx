@@ -11,38 +11,33 @@ export default function HomePage() {
         </div>
 
         <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-360 h-176 rounded-3xl mx-auto overflow-hidden">
-          <section className="flex items-center justify-center px-4 py-6 w-360 h-176 mx-auto drop-shadow-md">
-            <div className="flex-shrink-0 w-144 h-144 px-7">
+          <section className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md">
+            <div className="flex-shrink-0 w-148 h-148 px-7">
               <img
                 src={"/images/Last-Laugh.jpg"}
                 alt="Picture of Ishpreet"
-                className="rounded-3xl object-cover w-144 h-144 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
+                className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
               />
             </div>
-            <div className="flex flex-col pl-8 text-white text-lg overflow-auto gap-14 text-left -mt-16">
+            <div className="flex flex-col text-white text-lg overflow-auto gap-6 text-left px-8 pt-5">
               <div className="flex-shrink-0">
-                According to all known laws of aviation, there is no way a bee should be able to fly.
-                Its wings are too small to get its fat little body off the ground.
-                The bee, of course, flies anyway because bees don't care what humans think is impossible.
-                Yellow, black. Yellow, black. Yellow, black. Yellow, black.
-                Ooh, black and yellow!
-                Let's shake it up a little.
-                Barry! Breakfast is ready!
-                Coming!
-                Hang on a second.
-                Hello?
-                Barry?
-                Adam?
-                Can you believe this is happening?
-                I can't.
-                I'll pick you up.
-                Looking sharp.
-                Use the stairs, Your father paid good money for those.
-                Sorry. I'm excited.
-                Here's the graduate.
-                We're very proud of you, son.
-                A perfect report card, all B's.
-                Very proud.
+                Hey there, I’m <span className='text-[rgb(6,182,212)] font-bold'>Ishpreet Nagi</span>, a software developer based in Canada.<br /><br />
+
+                Apart from being the best programmer in my family (I am the only one), 
+                I am currently completing my fourth and final year in computer science at 
+                McMaster University.<br /><br />
+
+                I am intrigued by all aspects of the software development landscape, reveling 
+                in the frustration that accompanies the methodical process of backend development, 
+                as well as the countless hours lost in frontend development. 
+                Apart from those two, I spend my time learning and developing my skills within whichever 
+                topic has caught my fascination. My recent interests include machine learning, game 
+                development, and expanding upon my pre-existing frontend development knowledge with more 
+                experience, like this website.<br /><br />
+
+                Beyond my technical prowess and interests, you can find me enjoying a self-made latte with a 
+                nice movie during a quiet night, getting lost in other worlds through a fun video game, or 
+                simply jamming out to a track as I imagine myself in the music video. 
               </div>
               <MusicPlayer />
             </div>

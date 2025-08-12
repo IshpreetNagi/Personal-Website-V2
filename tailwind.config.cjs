@@ -8,6 +8,7 @@ module.exports = {
         mono: ["Roboto Mono", "monospace"],
       },
       spacing: {
+        '18': '4.5rem',
         '68': '17rem',
         '72': '18rem',
         '74': '18.5rem',
@@ -23,6 +24,8 @@ module.exports = {
         '128': '32rem',
         '136': '34rem',
         '144': '36rem',
+        '148': '37rem',
+        '152': '38rem',
         '160': '40rem',
         '168': '42rem',
         '176': '44rem',
