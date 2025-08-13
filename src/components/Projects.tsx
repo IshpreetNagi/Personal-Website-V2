@@ -1,15 +1,16 @@
 import { motion } from 'framer-motion';
+import { FaGithub } from "react-icons/fa";
 
 // Links for icons: https://devicon.dev
 
-export default function HomePage() {
+export default function Projects() {
   return (
     <div className="flex flex-col justify-start z-10">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
         <div className="flex flex-col justify-start z-10 overflow-hidden relative">
-                      <div className="text-[52px] text-white mb-11 pl-68"> My Projects </div>         
+                      <div className="text-[52px] text-white mb-11 pl-20"> My Projects </div>         
 
-          <div className="flex flex-row gap-12 justify-center items-center flex-wrap max-w-[2000px]">
+          <div className="flex flex-row gap-10 justify-center items-center flex-wrap max-w-[1600px]">
             <a href="https://github.com/IshpreetNagi/Tempestuous-Turrets" target="_blank" rel="noopener noreferrer">
               <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
@@ -21,7 +22,7 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mt-6 mb-8">Tempestuous Turrets</div>
+                    <div className="text-xl font-semibold mt-4 mb-8">Tempestuous Turrets</div>
                     <div className="text-base text-white/70 pr-8 flex-grow">
                       A point and click local multiplayer game where you battle others across 
                       various battlefields to be the last turret standing!
@@ -95,6 +96,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </section>
+                <FaGithub className="w-8 h-8 text-white/20"/>
               </div>
             </a>
 
@@ -103,17 +105,18 @@ export default function HomePage() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5">
                     <img
-                      src={"/images/Last-Laugh.jpg"}
-                      alt="Picture of Ishpreet"
+                      src={"/images/website_projectspage.png"}
+                      alt="Projects Page Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mt-6 mb-8">This Website</div>
+                    <div className="text-xl font-semibold mt-4 mb-8">This Website</div>
                     <div className="text-base text-white/70 pr-8 flex-grow">
                       You are still here and looking around, so it’s not too bad, right?
+                      Feel free to reach out to me if you have any questions or suggestions!
                     </div>
-                    <div className="flex flex-row gap-3 mt-16">
+                    <div className="flex flex-row gap-3 mt-10">
                       <div className="relative group inline-block">
                         <img
                           src={"/images/astro-icon-light-gradient.svg"}
@@ -195,6 +198,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </section>
+                <FaGithub className="w-8 h-8 text-white/20"/>
               </div>
             </a>
 
@@ -209,7 +213,7 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mt-6 mb-8">McMaster Room Booking</div>
+                    <div className="text-xl font-semibold mt-4 mb-8">McMaster Room Booking</div>
                     <div className="text-base text-white/70 pr-8 flex-grow">
                       A website to centralize and streamline the room booking process for the buildings 
                       across the McMaster University campus. 
@@ -270,6 +274,7 @@ export default function HomePage() {
                     </div>
                   </div>
                 </section>
+                <FaGithub className="w-8 h-8 text-white/20"/>
               </div>
             </a>
 
@@ -284,12 +289,12 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mt-6 mb-8">Arcade Games Emulator</div>
+                    <div className="text-xl font-semibold mt-4 mb-8">Arcade Games Emulator</div>
                     <div className="text-base text-white/70 pr-8 flex-grow">
                       Three iconic games —Who Wants to Be a Millionaire, Whack-a-Mole, and Number Guesser 
                       —are brought together and neatly wrapped in a single package. 
                     </div>
-                    <div className="flex flex-row gap-3 mt-5">
+                    <div className="flex flex-row gap-3 mt-4">
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
@@ -305,6 +310,20 @@ export default function HomePage() {
                       </div>
                     </div>
                   </div>
+                </section>
+                <FaGithub className="w-8 h-8 text-white/20"/>
+              </div>
+            </a>
+
+            <a href="https://github.com/IshpreetNagi?tab=repositories" target="_blank" rel="noopener noreferrer">
+              <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-52 h-20 rounded-2xl overflow-hidden box-select-hover">
+                <section className="flex items-center justify-center w-full h-full drop-shadow-md text-white gap-2">
+                  <div className="text-xl">See more</div>
+                  <img 
+                    src={"https://img.icons8.com/sf-regular-filled/48/FFFFFF/right-squared.png"}
+                    alt="Right arrow"
+                    className="w-8 h-8"
+                  />
                 </section>
               </div>
             </a>

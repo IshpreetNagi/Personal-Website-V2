@@ -30,13 +30,13 @@ export default function Background() {
     };
 
     const initBubbles = () => {
-      Bubbles.current = Array.from({ length: 200 }, () => ({
+      Bubbles.current = Array.from({ length: 300 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        size: Math.random() * 2.1,
-        opacity: Math.random() * 0.7,
-        speed: Math.random() * 0.5,
-        isAccent: Math.random() < 0.3, // ~1/5 of Bubbles are accent
+        size: Math.random() * 2.5,
+        opacity: Math.random() * 0.8,
+        speed: Math.random() * 0.6,
+        isAccent: Math.random() < 0.5,
       }));
     };
 
@@ -51,7 +51,7 @@ export default function Background() {
 
       const accentColor = getComputedStyle(document.documentElement)
         .getPropertyValue('--accent-Bubble-color');
-      const [ar, ag, ab] = accentColor.match(/\d+/g)?.map(Number) ?? [255, 165, 0]; // fallback to orange
+      const [ar, ag, ab] = accentColor.match(/\d+/g)?.map(Number) ?? [6, 182,212];
 
       Bubbles.current.forEach((Bubble) => {
         Bubble.y += Bubble.speed;

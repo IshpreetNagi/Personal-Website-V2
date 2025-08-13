@@ -28,7 +28,7 @@ const SocialIcons = () => (
           </div>
     </button>
     <a href="https://github.com/IshpreetNagi" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="group underline-animation underline-animation-icon">
-      <FaGithub className="w-8 h-8" />
+      <FaGithub className="w-8 h-8"/>
       <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2
                     bg-gray-800 text-white text-sm rounded py-1 px-2
                       opacity-0 invisible group-hover:opacity-100 group-hover:visible
@@ -37,7 +37,7 @@ const SocialIcons = () => (
       </div>
     </a>
     <a href="https://www.linkedin.com/in/ishpreet-nagi-b609b1180/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="group underline-animation underline-animation-icon">
-      <FaLinkedin className="w-8 h-8" />
+      <FaLinkedin className="w-8 h-8"/>
       <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2
                     bg-gray-800 text-white text-sm rounded py-1 px-2
                       opacity-0 invisible group-hover:opacity-100 group-hover:visible
