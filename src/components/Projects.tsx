@@ -8,9 +8,9 @@ export default function Projects() {
     <div className="flex flex-col justify-start z-10">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
         <div className="flex flex-col justify-start z-10 overflow-hidden relative">
-                      <div className="text-[52px] text-white mb-11 pl-20"> My Projects </div>         
+                      <div className="text-[52px] text-white mb-11 pl-20 sm:pl-32"> My Projects </div>         
 
-          <div className="flex flex-row gap-10 justify-center items-center flex-wrap max-w-[1600px]">
+          <div className="flex flex-row gap-10 justify-center items-center flex-wrap max-w-[1600px] sm:max-w-[950px]">
             <a href="https://github.com/IshpreetNagi/Tempestuous-Turrets" target="_blank" rel="noopener noreferrer">
               <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">

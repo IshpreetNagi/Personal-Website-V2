@@ -2,6 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{astro,js,jsx,ts,tsx}"],
   theme: {
+      screens: {
+        sm: { max: "1000px" },  // Phones only
+        md: { min: "1001px", max: "1279px" },  // Tablets only
+        lg: "1280px"  // Laptops and up
+    },
     extend: {
       fontFamily: {
         sans: ["Outfit", "sans-serif"],
@@ -41,6 +46,7 @@ module.exports = {
     },
     scale: {
       80: '0.8',
+      140: '1.4',
     }
     },
   },
