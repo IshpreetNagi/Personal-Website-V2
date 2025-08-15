@@ -4,22 +4,22 @@ import MusicPlayer from './MusicPlayer';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col justify-start z-10">
+    <div className="flex flex-col justify-start z-10 sm:max-w-[950px]">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
         <div className="text-[52px] text-white mb-11 pl-0">
           A bit about me...
         </div>
 
-        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-360 h-176 rounded-3xl mx-auto overflow-hidden">
-          <section className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md">
-            <div className="flex-shrink-0 w-148 h-148 px-7">
+        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:px-0">
+          <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:gap-9 sm:w-176 sm:h-356 sm:px-10">
+            <div className="flex-shrink-0 px-7">
               <img
                 src={"/images/Last-Laugh.jpg"}
                 alt="Picture of Ishpreet"
-                className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
+                className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:w-160"
               />
             </div>
-            <div className="flex flex-col text-white text-lg overflow-auto gap-6 text-left px-8 pt-5">
+            <div className="flex flex-col text-white text-lg overflow-auto gap-6 text-left px-8 pt-5 sm:gap-10">
               <div className="flex-shrink-0">
                 Hey there, I’m <span className='text-[rgb(6,182,212)] font-bold'>Ishpreet Nagi</span>, a software developer based in Canada.<br /><br />
 
@@ -41,7 +41,7 @@ export default function HomePage() {
               </div>
               <MusicPlayer />
             </div>
-          </section>
+          </div>
         </div>
       </motion.div>
     </div>

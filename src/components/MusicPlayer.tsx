@@ -57,8 +57,8 @@ function MusicPlayer() {
   return (
     <div className="text-white">
       {nowPlaying ? (
-        <div className="flex flex-row gap-9 items-center">
-          <h2 className='text-lg text-[rgb(29,185,84)]'>Currently jamming to...</h2>
+        <div className="flex flex-row gap-9 ">
+          <h2 className='text-lg text-[rgb(29,185,84)] mt-3'>Currently jamming to...</h2>
           <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80">
             <div className="relative w-20 h-20 flex-shrink-0">
               <img
@@ -78,8 +78,8 @@ function MusicPlayer() {
         </div>
       ) :
       lastPlayed ? (
-        <div className="flex flex-row gap-9 items-center">
-          <h2 className='text-lg text-[rgb(29,185,84)] mb-12'>Previously jamming to...</h2>
+        <div className="flex flex-row gap-9">
+          <h2 className='text-lg text-[rgb(29,185,84)] mt-3'>Previously jamming to...</h2>
           <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80">
             <div className="relative w-20 h-20 flex-shrink-0">
               <img
@@ -96,7 +96,7 @@ function MusicPlayer() {
         </div>
       ) : (
         <div className="mt-6">
-          <p>No track data found.</p>
+          <h2 className='text-lg text-[rgb(29,185,84)] items-center justify-center'>!! No music data found. Last.fm unavailable !!</h2>
         </div>
       )}
     </div>
