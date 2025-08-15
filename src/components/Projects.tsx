@@ -1,16 +1,18 @@
 import { motion } from 'framer-motion';
 import { FaGithub } from "react-icons/fa";
 
+const year = new Date().getFullYear();
+
 // Links for icons: https://devicon.dev
 
 export default function Projects() {
   return (
-    <div className="flex flex-col justify-start z-10">
+    <div className="flex flex-col justify-start z-10 sm:scale-39">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
         <div className="flex flex-col justify-start z-10 overflow-hidden relative">
-                      <div className="text-[52px] text-white mb-11 pl-20 sm:pl-32"> My Projects </div>         
+                      <div className="text-[52px] text-white mb-11 pl-20"> My Projects </div>         
 
-          <div className="flex flex-row gap-10 justify-center items-center flex-wrap max-w-[1600px] sm:max-w-[950px]">
+          <div className="flex flex-row gap-10 justify-center items-center flex-wrap max-w-[1600px]">
             <a href="https://github.com/IshpreetNagi/Tempestuous-Turrets" target="_blank" rel="noopener noreferrer">
               <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
@@ -22,12 +24,12 @@ export default function Projects() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mt-4 mb-8">Tempestuous Turrets</div>
-                    <div className="text-base text-white/70 pr-8 flex-grow">
+                    <div className="text-xl font-semibold mt-4 mb-8 sm:scale-125 sm:origin-left">Tempestuous Turrets</div>
+                    <div className="text-base text-white/70 pr-8 flex-grow sm:scale-110 sm:origin-left">
                       A point and click local multiplayer game where you battle others across 
                       various battlefields to be the last turret standing!
                     </div>
-                    <div className="flex flex-row gap-3 mt-10">
+                    <div className="flex flex-row gap-3 mt-7 ">
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-plain.svg" 
@@ -111,12 +113,12 @@ export default function Projects() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mt-4 mb-8">This Website</div>
-                    <div className="text-base text-white/70 pr-8 flex-grow">
+                    <div className="text-xl font-semibold mt-4 mb-8 sm:scale-125 sm:origin-left">This Website</div>
+                    <div className="text-base text-white/70 pr-8 flex-grow sm:scale-110 sm:origin-left">
                       You are still here and looking around, so it’s not too bad, right?
                       Feel free to reach out to me if you have any questions or suggestions!
                     </div>
-                    <div className="flex flex-row gap-3 mt-10">
+                    <div className="flex flex-row gap-3 mt-7">
                       <div className="relative group inline-block">
                         <img
                           src={"/images/astro-icon-light-gradient.svg"}
@@ -213,12 +215,12 @@ export default function Projects() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mt-4 mb-8">McMaster Room Booking</div>
-                    <div className="text-base text-white/70 pr-8 flex-grow">
+                    <div className="text-xl font-semibold mt-4 mb-8 sm:scale-125 sm:origin-left">McMaster Room Booking</div>
+                    <div className="text-base text-white/70 pr-8 flex-grow sm:scale-110 sm:origin-left">
                       A website to centralize and streamline the room booking process for the buildings 
                       across the McMaster University campus. 
                     </div>
-                    <div className="flex flex-row gap-3 mt-10">
+                    <div className="flex flex-row gap-3 mt-7">
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
@@ -289,12 +291,12 @@ export default function Projects() {
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7">
-                    <div className="text-xl font-semibold mt-4 mb-8">Arcade Games Emulator</div>
-                    <div className="text-base text-white/70 pr-8 flex-grow">
+                    <div className="text-xl font-semibold mt-4 mb-8 sm:scale-125 sm:origin-left">Arcade Games Emulator</div>
+                    <div className="text-base text-white/70 pr-8 flex-grow sm:scale-110 sm:origin-left">
                       Three iconic games —Who Wants to Be a Millionaire, Whack-a-Mole, and Number Guesser 
-                      —are brought together and neatly wrapped in a single package. 
+                      —are brought together in a single package. 
                     </div>
-                    <div className="flex flex-row gap-3 mt-4">
+                    <div className="flex flex-row gap-3 mt-7">
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
@@ -316,7 +318,7 @@ export default function Projects() {
             </a>
 
             <a href="https://github.com/IshpreetNagi?tab=repositories" target="_blank" rel="noopener noreferrer">
-              <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-52 h-20 rounded-2xl overflow-hidden box-select-hover">
+              <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-52 h-20 rounded-2xl overflow-hidden box-select-hover sm:scale-105">
                 <section className="flex items-center justify-center w-full h-full drop-shadow-md text-white gap-2">
                   <div className="text-xl">See more</div>
                   <img 

@@ -3,9 +3,9 @@ module.exports = {
   content: ["./src/**/*.{astro,js,jsx,ts,tsx}"],
   theme: {
       screens: {
-      sm: { max: "639px" },      // Phones
-      md: { min: "640px", max: "1023px" }, // Tablets
-      lg: { min: "1024px" },     // Laptops and desktops
+      sm: { max: "430px" },        // Phones (up to biggest iPhone)
+      md: { min: "431px", max: "1439px" }, // Tablets & laptops up to 14"
+      lg: { min: "1440px" }        // Laptops & monitors 15" and larger
     },
     extend: {
       fontFamily: {
@@ -49,6 +49,8 @@ module.exports = {
         '384': '96rem',
     },
     scale: {
+      39: '0.39',
+      60: '0.6',
       80: '0.8',
       170: '1.7',
       140: '1.4',

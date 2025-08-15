@@ -3,8 +3,8 @@ import { TypeAnimation } from 'react-type-animation';
 
 export default function HomePage() {
   return (
-    <section className="relative z-10 flex flex-col items-center justify-center gap-24 min-h-screen md:px-10 lg:px-20 text-white text-center">
-      <h1 className="text-7xl font-bold max-w-4xl mx-auto leading-tight min-h-[11.5rem]">
+    <section className="relative z-10 flex flex-col items-center justify-center gap-24 min-h-screen text-white text-center sm:scale-50">
+      <h1 className="text-7xl font-bold max-w-4xl mx-auto leading-tight min-h-[11.5rem] sm:min-h-[28.5rem]">
         <TypeAnimation  
           sequence={[
             250,
@@ -22,7 +22,7 @@ export default function HomePage() {
           repeat={Infinity}
         />
       </h1>
-      <p className="text-lg text-gray-300 sm:text-3xl sm:max-w-xl">
+      <p className="text-lg text-gray-300">
         Full-Stack Developer who enjoys explaining code to a rubber ducky at 1 am
       </p>
     </section>
