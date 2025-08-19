@@ -12,6 +12,9 @@ module.exports = {
         sans: ["Outfit", "sans-serif"],
         mono: ["Roboto Mono", "monospace"],
       },
+      fontSize: {
+        xxs: '0.625rem',
+      },
       spacing: {
         '18': '4.5rem',
         '22': '5.5rem',
@@ -33,6 +36,7 @@ module.exports = {
         '148': '37rem',
         '152': '38rem',
         '160': '40rem',
+        '164': '41rem',
         '168': '42rem',
         '176': '44rem',
         '184': '46rem',
@@ -47,10 +51,12 @@ module.exports = {
         '356': '89rem',
         '360': '90rem',
         '384': '96rem',
+        '500': '125rem'
     },
     scale: {
       39: '0.39',
       60: '0.6',
+      65: '0.65',
       80: '0.8',
       170: '1.7',
       140: '1.4',
