@@ -4,22 +4,22 @@ import MusicPlayer from './MusicPlayer';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col justify-start z-10 sm:scale-39">
+    <div className="flex flex-col justify-start z-10">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
-        <div className="text-[52px] text-white mb-11 pl-0 scale-125 sm:pl-20">
+        <div className="text-[52px] text-white mb-11 pl-0 sm:text-3xl sm:pl-1 sm:mb-8">
           A bit about me...
         </div>
 
-        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto">
-          <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:w-164 sm:h-500 sm:gap-14">
-            <div className="flex-shrink-0 px-7">
+        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:w-68 sm:h-235 sm:rounded-2xl sm:justify-center sm:px-2">
+          <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:w-68 sm:h-500 sm:pt-11">
+            <div className="flex-shrink-0 px-7 sm:px-0">
               <img
                 src={"/images/Last-Laugh.jpg"}
                 alt="Picture of Ishpreet"
-                className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out"
+                className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:rounded-2xl sm:w-54 sm:h-54"
               />
             </div>
-            <div className="flex flex-col text-white text-lg overflow-auto gap-6 text-left px-8 pt-5 sm:gap-10 sm:text-3xl">
+            <div className="flex flex-col text-white text-lg overflow-auto gap-6 text-left px-8 pt-5 sm:text-xs sm:w-68 sm:gap-0 sm:pt-5">
               <div className="flex-shrink-0">
                 Hey there, I’m <span className='text-[rgb(6,182,212)] font-bold'>Ishpreet Nagi</span>, a software developer based in Canada.<br /><br />
 
@@ -39,7 +39,9 @@ export default function HomePage() {
                 nice movie during a quiet night, getting lost in other worlds through a fun video game, or 
                 simply jamming out to a track as I imagine myself in the music video. 
               </div>
-              <MusicPlayer />
+              <div className="sm:scale-60 sm:origin-left sm:-mt-4">
+                <MusicPlayer />
+              </div>
             </div>
           </div>
         </div>
