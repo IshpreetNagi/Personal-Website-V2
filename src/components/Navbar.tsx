@@ -8,7 +8,7 @@ const navLinks = [
 
 const navbar: FC = () => {
   return (
-      <nav className="sticky top-6 z-50 bg-white/5 backdrop-blur-sm border border-white/10 px-8 py-5 rounded-2xl mx-auto max-w-xs drop-shadow-md text-white text-lg flex justify-center sm:scale-70 sm:top-2">
+      <nav className="sticky top-6 z-50 bg-white/5 backdrop-blur-sm border border-white/10 px-8 py-5 rounded-2xl mx-auto max-w-xs drop-shadow-md text-white text-lg flex justify-center sm:scale-80 sm:top-2 md:scale-80 md:top-4">
         <ul className="flex justify-center gap-8 list-none m-0 p-0">
           {navLinks.map((link) => (
             <li key={link.href}>

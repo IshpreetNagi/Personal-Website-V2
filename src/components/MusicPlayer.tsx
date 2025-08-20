@@ -57,7 +57,7 @@ function MusicPlayer() {
   return (
     <div className="text-white">
       {nowPlaying ? (
-        <div className="flex flex-row gap-9 sm:flex-col sm:gap-4">
+        <div className="flex flex-row gap-9 sm:flex-col sm:gap-4 md:flex-col md:gap-4">
           <h2 className='text-lg text-[rgb(29,185,84)] mt-3'>Currently jamming to...</h2>
           <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80">
             <div className="relative w-20 h-20 flex-shrink-0">
@@ -71,14 +71,14 @@ function MusicPlayer() {
               </div>
             </div>
             <div className="flex flex-col ml-6 gap-1">
-              <p className='text-xl'>{nowPlaying.name}</p>
-              <p className='text-sm'>{nowPlaying.artist['#text']}</p>
+              <p className='text-2xl'>{nowPlaying.name}</p>
+              <p className='text-base'>{nowPlaying.artist['#text']}</p>
             </div>
           </div>
         </div>
       ) :
       lastPlayed ? (
-        <div className="flex flex-row gap-9 sm:flex-col sm:gap-4">
+        <div className="flex flex-row gap-9 sm:flex-col sm:gap-4 md:flex-col md:gap-4">
           <h2 className='text-lg text-[rgb(29,185,84)] mt-3'>Previously jamming to...</h2>
           <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80">
             <div className="relative w-20 h-20 flex-shrink-0">
@@ -89,8 +89,8 @@ function MusicPlayer() {
               />
             </div>
             <div className="flex flex-col ml-6 gap-1">
-              <p className='text-2xl'>{lastPlayed.name}</p>
-              <p className='text-base'>{lastPlayed.artist['#text']}</p>
+              <p className='text-2xl sm:text-3xl'>{lastPlayed.name}</p>
+              <p className='text-base sm:text-lg'>{lastPlayed.artist['#text']}</p>
             </div>
           </div>
         </div>
