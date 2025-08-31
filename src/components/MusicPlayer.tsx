@@ -64,15 +64,15 @@ function MusicPlayer() {
               <img
                 src={nowPlaying.image.find(img => img.size === 'extralarge')?.['#text'] || ''}
                 alt="Album Art"
-                className="w-full h-full object-cover rounded-2xl shadow-lg "
+                className="w-full h-full object-cover rounded-xl shadow-lg "
               />
               <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-2xl">
                 <Waves />
               </div>
             </div>
             <div className="flex flex-col ml-6 gap-1">
-              <p className='text-2xl'>{nowPlaying.name}</p>
-              <p className='text-base'>{nowPlaying.artist['#text']}</p>
+              <p className='text-2xl sm:text-3xl'>{nowPlaying.name}</p>
+              <p className='text-base sm:text-lg'>{nowPlaying.artist['#text']}</p>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ function MusicPlayer() {
               <img
                 src={lastPlayed.image.find(img => img.size === 'extralarge')?.['#text'] || ''}
                 alt="Album Art"
-                className="w-full h-full object-cover rounded-2xl shadow-lg "
+                className="w-full h-full object-cover rounded-xl shadow-lg "
               />
             </div>
             <div className="flex flex-col ml-6 gap-1">
@@ -96,7 +96,7 @@ function MusicPlayer() {
         </div>
       ) : (
         <div className="mt-6">
-          <h2 className='text-lg text-[rgb(29,185,84)] items-center justify-center'>!! No music data found. Last.fm unavailable !!</h2>
+          <h2 className='text-lg text-[rgb(29,185,84)] items-center justify-center'>Error accessing music data. Last.fm unavailable.</h2>
         </div>
       )}
     </div>
