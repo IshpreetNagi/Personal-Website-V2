@@ -9,7 +9,7 @@ const handleCopy = () => {
 
 const SocialIcons = () => (
   <div className=" flex flex-col gap-7 items-center">
-    <a href="files/Ishpreet_Nagi_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" className="group underline-animation underline-animation-icon">
+    <a href="/files/Ishpreet_Nagi_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" className="group underline-animation underline-animation-icon">
       <img src="https://img.icons8.com/external-tanah-basah-glyph-tanah-basah/48/FFFFFF/external-cv-voting-elections-tanah-basah-glyph-tanah-basah.png" className="w-9 h-9"/>
       <div className="absolute left-full top-1/2 -translate-y-1/2 ml-2
                     bg-gray-800 text-white text-sm rounded py-1 px-2
