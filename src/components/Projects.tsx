@@ -7,7 +7,7 @@ const year = new Date().getFullYear();
 
 export default function Projects() {
   return (
-    <div className="flex flex-col justify-start z-10">
+    <div className="flex flex-col justify-start z-10 lg:scale-83">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 1.0 }}>
         <div className="flex flex-col justify-start z-10 overflow-hidden relative">
                       <div className="text-[52px] text-white mb-11 pl-19 sm:text-3xl sm:flex sm:justify-center sm:pl-0 sm:mb-8 md:text-4xl md:pl-1"> My Projects </div>
