@@ -10,7 +10,7 @@ export default function HomePage() {
           A bit about me...
         </div>
 
-        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:w-68 sm:h-235 sm:rounded-2xl sm:justify-center sm:px-2 md:rounded-2xl md:justify-center">
+        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:w-68 sm:h-240 sm:rounded-2xl sm:justify-center sm:px-2 md:rounded-2xl md:justify-center">
           <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:w-68 sm:h-500 sm:pt-11 md:flex-col md:h-320 md:pt-6">
             <div className="flex-shrink-0 px-7 sm:px-0">
               <img
@@ -39,7 +39,7 @@ export default function HomePage() {
                 nice movie during a quiet night, getting lost in other worlds through a fun video game, or 
                 simply jamming out to a track as I imagine myself in the music video. 
               </div>
-              <div className="sm:scale-60 sm:origin-left sm:-mt-4 md:scale-95 md:origin-top-left">
+              <div className="sm:scale-60 sm:origin-left sm:-mt-7 md:scale-95 md:origin-top-left">
                 <MusicPlayer />
               </div>
             </div>
