@@ -25,9 +25,17 @@ export default function Background() {
     if (!ctx) return;
 
     const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = document.body.scrollHeight;
+    canvas.width = window.innerWidth;
+    canvas.height = document.body.scrollHeight;
+    canvas.style.width = `${window.innerWidth}px`;
+    canvas.style.height = `${document.body.scrollHeight}px`;
     };
+
+    setCanvasSize();
+    window.addEventListener("resize", setCanvasSize);
+
+    const observer = new ResizeObserver(setCanvasSize);
+    observer.observe(document.body);
 
     const initBubbles = () => {
       Bubbles.current = Array.from({ length: 300 }, () => ({
@@ -74,15 +82,19 @@ export default function Background() {
       requestAnimationFrame(animate);
     };
 
-    setCanvasSize();
     initBubbles();
     animate();
+
+    return () => {
+    window.removeEventListener("resize", setCanvasSize);
+    observer.disconnect();
+    };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 -z-10"
+      className="absolute top-0 left-0 -z-10 w-full"
       style={{ background: 'var(--background-color)' }}
     />
   );
