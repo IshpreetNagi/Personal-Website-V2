@@ -17,6 +17,8 @@ export const GET: APIRoute = async () => {
 
   const data = await response.json();
 
+  console.log("Last.fm API response:", JSON.stringify(data.recenttracks?.track?.[0], null, 2));
+
   const recentTracks = data.recenttracks?.track || [];
 
   let nowPlaying = null;
@@ -34,7 +36,12 @@ export const GET: APIRoute = async () => {
   }
 
   return new Response(JSON.stringify({ nowPlaying, lastPlayed }), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
+  status: 200,
+  headers: {
+    'Content-Type': 'application/json',
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    Pragma: 'no-cache',
+    Expires: '0',
+  },
   });
 };
