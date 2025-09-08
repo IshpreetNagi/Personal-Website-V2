@@ -11,12 +11,12 @@ function Waves() {
   const [heights, setHeights] = useState([10, 15, 7, 12, 20]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setHeights(heights.map(() => 5 + Math.floor(Math.random() * 20)));
-    }, 300);
+  const interval = setInterval(() => {
+    setHeights(prev => prev.map(() => 5 + Math.floor(Math.random() * 20)));
+  }, 300);
 
-    return () => clearInterval(interval);
-  }, [heights]);
+  return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="flex space-x-1 mb-2 justify-center items-end h-8">

@@ -1,8 +1,9 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = async () => {
-  const API_KEY = import.meta.env.LASTFM_API_KEY;
-  const USERNAME = import.meta.env.LASTFM_USERNAME;
+  //process.env for server-side when deployed, import.meta.env for local development
+  const API_KEY = process.env.LASTFM_API_KEY || import.meta.env.LASTFM_API_KEY;
+  const USERNAME = process.env.LASTFM_USERNAME || import.meta.env.LASTFM_USERNAME;
 
   const response = await fetch(
     `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${USERNAME}&api_key=${API_KEY}&format=json`
