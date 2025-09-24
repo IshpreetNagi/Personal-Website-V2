@@ -79,9 +79,9 @@ function MusicPlayer() {
       ) :
       lastPlayed ? (
         <div className="flex flex-row gap-9 sm:flex-col sm:gap-4 md:flex-col md:gap-4">
-          <h2 className='text-lg text-[rgb(29,185,84)] mt-3'>Previously jamming to...</h2>
-          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80">
-            <div className="relative w-20 h-20 flex-shrink-0">
+          <h2 className='text-lg text-[rgb(29,185,84)] mt-3 sm:text-sm sm:mt-9'>Previously jamming to...</h2>
+          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80 sm:scale-100 sm:w-52 sm:px-5 sm:py-0">
+            <div className="relative w-20 h-20 flex-shrink-0 sm:w-12 sm:h-12">
               <img
                 src={lastPlayed.image.find(img => img.size === 'extralarge')?.['#text'] || ''}
                 alt="Album Art"

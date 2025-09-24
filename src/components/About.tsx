@@ -10,8 +10,8 @@ export default function HomePage() {
           A bit about me...
         </div>
 
-        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:w-68 sm:h-240 sm:rounded-2xl sm:justify-center sm:px-2 md:rounded-2xl md:justify-center">
-          <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:w-68 sm:h-500 sm:pt-11 md:flex-col md:h-320 md:pt-6">
+        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:w-68 sm:rounded-2xl sm:justify-center sm:px-2 sm:m-auto md:rounded-2xl md:justify-center">
+          <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:w-68 sm:h-auto sm:py-8 md:flex-col md:h-auto md:pt-6">
             <div className="flex-shrink-0 px-7 sm:px-0">
               <img
                 src={"/images/Last-Laugh.jpg"}
@@ -19,7 +19,7 @@ export default function HomePage() {
                 className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:rounded-2xl sm:w-54 sm:h-54 md:w-112 md:h-112"
               />
             </div>
-            <div className="flex flex-col text-white text-lg overflow-auto gap-6 text-left px-8 pt-5 sm:text-xs sm:w-68 sm:gap-0 sm:pt-5 md:w-128 md:pt-8 md:text-base">
+            <div className="flex flex-col text-white text-lg overflow-auto gap-6 text-left px-8 pt-5 sm:text-xs sm:w-68 sm:gap-0 sm:pt-7 md:w-128 md:pt-8 md:text-base">
               <div className="flex-shrink-0">
                 Hey there, I’m <span className='text-[rgb(6,182,212)] font-bold'>Ishpreet Nagi</span>, a software developer based in Canada.<br /><br />
 
@@ -39,7 +39,7 @@ export default function HomePage() {
                 nice movie during a quiet night, getting lost in other worlds through a fun video game, or 
                 simply jamming out to a track as I imagine myself in the music video. 
               </div>
-              <div className="sm:scale-60 sm:origin-left sm:-mt-7 md:scale-95 md:origin-top-left">
+              <div className="sm:origin-left sm:-mt-5 md:scale-95 md:origin-top-left">
                 <MusicPlayer />
               </div>
             </div>
