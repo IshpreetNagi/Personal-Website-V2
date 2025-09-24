@@ -43,7 +43,7 @@ export default function Background() {
         y: Math.random() * canvas.height,
         size: Math.random() * 2.5,
         opacity: Math.random() * 0.8,
-        speed: Math.random() * 0.8,
+        speed: Math.random() * 0.5,
         isAccent: Math.random() < 0.5,
       }));
     };

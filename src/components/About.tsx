@@ -10,8 +10,8 @@ export default function HomePage() {
           A bit about me...
         </div>
 
-        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:w-68 sm:rounded-2xl sm:justify-center sm:px-2 sm:m-auto md:rounded-2xl md:justify-center">
-          <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:w-68 sm:h-auto sm:py-8 md:flex-col md:h-auto md:pt-6">
+        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:w-68 sm:rounded-2xl sm:justify-center sm:px-3 sm:py-8 sm:m-auto md:rounded-2xl md:justify-center md:py-5">
+          <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:w-68 sm:h-auto md:flex-col md:h-auto md:pt-6">
             <div className="flex-shrink-0 px-7 sm:px-0">
               <img
                 src={"/images/Last-Laugh.jpg"}
