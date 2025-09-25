@@ -164,9 +164,9 @@ function MusicPlayer() {
                   nowPlaying.image.find((img) => img.size === "extralarge")?.["#text"] || ""
                 }
                 alt="Album Art"
-                className="w-full h-full object-cover rounded-lg shadow-lg"
+                className="w-full h-full object-cover rounded-xl shadow-lg"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-2xl">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-xl">
                 <Waves />
               </div>
             </div>
@@ -189,7 +189,7 @@ function MusicPlayer() {
                   ""
                 }
                 alt="Album Art"
-                className="w-full h-full object-cover rounded-lg shadow-lg"
+                className="w-full h-full object-cover rounded-xl shadow-lg"
               />
             </div>
             <div className="flex flex-col ml-6 gap-1 w-60 sm:ml-4 sm:gap-0 sm:w-28">
