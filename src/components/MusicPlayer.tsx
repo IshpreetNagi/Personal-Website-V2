@@ -170,9 +170,9 @@ function MusicPlayer() {
                 <Waves />
               </div>
             </div>
-            <div className="flex flex-col ml-6 gap-1 sm:ml-4 sm:gap-0 w-52 sm:w-32">
+            <div className="flex flex-col ml-6 gap-1 sm:ml-4 sm:gap-0 w-52 sm:w-28">
               <ScrollingText text={nowPlaying.name} className="text-3xl sm:text-lg" />
-              <p className="text-base sm:text-[10px]">{nowPlaying.artist["#text"]}</p>
+              <p className="text-lg sm:text-[10px]">{nowPlaying.artist["#text"]}</p>
             </div>
           </div>
         </div>
@@ -194,7 +194,7 @@ function MusicPlayer() {
             </div>
             <div className="flex flex-col ml-6 gap-1 w-60 sm:ml-4 sm:gap-0 sm:w-28">
               <ScrollingText text={lastPlayed.name} className="text-3xl sm:text-lg" />
-              <p className="text-base sm:text-[10px]">{lastPlayed.artist["#text"]}</p>
+              <p className="text-lg sm:text-[10px]">{lastPlayed.artist["#text"]}</p>
             </div>
           </div>
         </div>
