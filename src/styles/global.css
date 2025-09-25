@@ -9,6 +9,14 @@
 
 }
 
+html, body {
+  overscroll-behavior: none; /* optional: disables rubber-band scrolling on mobile */
+  margin: 0;
+  padding: 0;
+  background-color: transparent; /* just to ensure nothing shows */
+}
+
+
 @layer base {
   html {
     @apply font-sans;
