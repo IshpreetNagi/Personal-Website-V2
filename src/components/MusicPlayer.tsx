@@ -37,12 +37,20 @@ function ScrollingText({ text, className }: { text: string; className?: string }
   const [isOverflowing, setIsOverflowing] = useState(false);
   const [offset, setOffset] = useState(0);
 
+  // Check if text overflows container
   useEffect(() => {
-    if (containerRef.current && textRef.current) {
-      setIsOverflowing(textRef.current.scrollWidth > containerRef.current.clientWidth);
-    }
+    const resizeObserver = new ResizeObserver(() => {
+      if (containerRef.current && textRef.current) {
+        setIsOverflowing(
+          textRef.current.scrollWidth > containerRef.current.getBoundingClientRect().width
+        );
+      }
+    });
+    if (containerRef.current) resizeObserver.observe(containerRef.current);
+    return () => resizeObserver.disconnect();
   }, [text]);
 
+  // Scroll effect
   useEffect(() => {
     if (!isOverflowing) {
       setOffset(0);
@@ -52,50 +60,50 @@ function ScrollingText({ text, className }: { text: string; className?: string }
     let animationFrame: number;
     let timeoutId: number;
     let direction: "left" | "right" = "left";
-    const speed = 1.5; // px per frame
-    const delay = 2000; // ms pause at each end
+    const delay = 2000; // pause at each end
 
     const step = () => {
       if (!containerRef.current || !textRef.current) return;
 
-      const containerWidth = containerRef.current.clientWidth;
+      const containerWidth = containerRef.current.getBoundingClientRect().width;
       const textWidth = textRef.current.scrollWidth;
-      
-      const cutoff = window.innerWidth < 640 ? 50 : 0; 
-      const maxOffset = -(textWidth - containerWidth - cutoff);
+
+      const cutoff = Math.min(containerWidth * 0.1, 20);
+      const maxOffset = -(textWidth - containerWidth + cutoff);
+
+      // Scale speed relative to scrollable distance
+      const distance = Math.abs(maxOffset);
+      const baseSpeed = 1.5; // base speed reference
+      const speed = Math.max(0.5, baseSpeed * (distance / 600)); // min 0.5 px/frame
 
       setOffset((prev) => {
         if (direction === "left") {
-          if (prev > maxOffset) {
-            return prev - speed;
-          } else {
-            // reached end
-            cancelAnimationFrame(animationFrame);
-            timeoutId = window.setTimeout(() => {
-              direction = "right";
-              animationFrame = requestAnimationFrame(step);
-            }, delay);
-            return maxOffset;
-          }
+          if (prev > maxOffset) return prev - speed;
+
+          // reached end
+          cancelAnimationFrame(animationFrame);
+          timeoutId = window.setTimeout(() => {
+            direction = "right";
+            animationFrame = requestAnimationFrame(step);
+          }, delay);
+          return maxOffset;
         } else {
-          if (prev < 0) {
-            return prev + speed;
-          } else {
-            // reached start
-            cancelAnimationFrame(animationFrame);
-            timeoutId = window.setTimeout(() => {
-              direction = "left";
-              animationFrame = requestAnimationFrame(step);
-            }, delay);
-            return 0;
-          }
+          if (prev < 0) return prev + speed;
+
+          // reached start
+          cancelAnimationFrame(animationFrame);
+          timeoutId = window.setTimeout(() => {
+            direction = "left";
+            animationFrame = requestAnimationFrame(step);
+          }, delay);
+          return 0;
         }
       });
 
       animationFrame = requestAnimationFrame(step);
     };
 
-    // initial pause at the start
+    // initial pause at start
     timeoutId = window.setTimeout(() => {
       animationFrame = requestAnimationFrame(step);
     }, delay);
@@ -107,7 +115,7 @@ function ScrollingText({ text, className }: { text: string; className?: string }
   }, [isOverflowing, text]);
 
   return (
-    <div ref={containerRef} className="overflow-hidden whitespace-nowrap w-full max-w-xs">
+    <div ref={containerRef} className="overflow-hidden whitespace-nowrap">
       <p
         ref={textRef}
         className={`${className} inline-block`}
@@ -184,7 +192,7 @@ function MusicPlayer() {
                 className="w-full h-full object-cover rounded-xl shadow-lg"
               />
             </div>
-            <div className="flex flex-col ml-6 gap-1 sm:ml-4 sm:gap-0 w-52 sm:w-32">
+            <div className="flex flex-col ml-6 gap-1 w-60 sm:ml-4 sm:gap-0 sm:w-28">
               <ScrollingText text={lastPlayed.name} className="text-3xl sm:text-lg" />
               <p className="text-base sm:text-[10px]">{lastPlayed.artist["#text"]}</p>
             </div>
