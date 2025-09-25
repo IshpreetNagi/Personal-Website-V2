@@ -39,15 +39,18 @@ function ScrollingText({ text, className }: { text: string; className?: string }
 
   // Check if text overflows container
   useEffect(() => {
-    const resizeObserver = new ResizeObserver(() => {
-      if (containerRef.current && textRef.current) {
-        setIsOverflowing(
-          textRef.current.scrollWidth > containerRef.current.getBoundingClientRect().width
-        );
-      }
-    });
-    if (containerRef.current) resizeObserver.observe(containerRef.current);
-    return () => resizeObserver.disconnect();
+    const checkOverflow = () => {
+      if (!containerRef.current || !textRef.current) return;
+
+      const containerWidth = containerRef.current.clientWidth;
+      const textWidth = textRef.current.scrollWidth;
+
+      setIsOverflowing(textWidth > containerWidth);
+    };
+
+    checkOverflow();
+    window.addEventListener("resize", checkOverflow);
+    return () => window.removeEventListener("resize", checkOverflow);
   }, [text]);
 
   // Scroll effect
@@ -60,27 +63,21 @@ function ScrollingText({ text, className }: { text: string; className?: string }
     let animationFrame: number;
     let timeoutId: number;
     let direction: "left" | "right" = "left";
-    const delay = 2000; // pause at each end
+    const delay = 2000;
 
     const step = () => {
       if (!containerRef.current || !textRef.current) return;
 
-      const containerWidth = containerRef.current.getBoundingClientRect().width;
+      const containerWidth = containerRef.current.clientWidth;
       const textWidth = textRef.current.scrollWidth;
-
-      const cutoff = Math.min(containerWidth * 0.1, 20);
-      const maxOffset = -(textWidth - containerWidth + cutoff);
-
-      // Scale speed relative to scrollable distance
-      const distance = Math.abs(maxOffset);
-      const baseSpeed = 1.5; // base speed reference
-      const speed = Math.max(0.5, baseSpeed * (distance / 600)); // min 0.5 px/frame
+      const maxOffset = -(textWidth - containerWidth); // full scrollable distance
+      const baseSpeed = 1.5;
+      const speed = Math.max(0.5, baseSpeed * ((textWidth - containerWidth) / 600));
 
       setOffset((prev) => {
         if (direction === "left") {
           if (prev > maxOffset) return prev - speed;
 
-          // reached end
           cancelAnimationFrame(animationFrame);
           timeoutId = window.setTimeout(() => {
             direction = "right";
@@ -90,7 +87,6 @@ function ScrollingText({ text, className }: { text: string; className?: string }
         } else {
           if (prev < 0) return prev + speed;
 
-          // reached start
           cancelAnimationFrame(animationFrame);
           timeoutId = window.setTimeout(() => {
             direction = "left";
@@ -103,7 +99,6 @@ function ScrollingText({ text, className }: { text: string; className?: string }
       animationFrame = requestAnimationFrame(step);
     };
 
-    // initial pause at start
     timeoutId = window.setTimeout(() => {
       animationFrame = requestAnimationFrame(step);
     }, delay);
