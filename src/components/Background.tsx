@@ -39,7 +39,7 @@ export default function Background() {
     observer.observe(document.body);
 
     const initBubbles = () => {
-      Bubbles.current = Array.from({ length: 390 }, () => ({
+      Bubbles.current = Array.from({ length: 450 }, () => ({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         size: Math.random() * 2.5,
@@ -73,7 +73,7 @@ export default function Background() {
         const dx = bubble.x - mousePosition.current.x;
         const dy = bubble.y - (window.scrollY + mousePosition.current.y);
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxDistance = 160;
+        const maxDistance = 180;
         if (distance < maxDistance && distance > 0) {
           const angle = Math.atan2(dy, dx);
           const pushStrength = ((maxDistance - distance) / maxDistance) * 1.5;
