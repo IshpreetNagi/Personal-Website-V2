@@ -73,7 +73,7 @@ export default function Background() {
         const dx = bubble.x - mousePosition.current.x;
         const dy = bubble.y - (window.scrollY + mousePosition.current.y);
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxDistance = 180;
+        const maxDistance = 130;
         if (distance < maxDistance && distance > 0) {
           const angle = Math.atan2(dy, dx);
           const pushStrength = ((maxDistance - distance) / maxDistance) * 1.5;
