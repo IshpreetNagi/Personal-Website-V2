@@ -12,7 +12,7 @@ export default function Projects() {
         <div className="flex flex-col justify-start z-10 overflow-hidden relative">
                       <div className="text-[52px] text-white mb-11 pl-15 sm:text-3xl sm:flex sm:justify-center sm:pl-0 sm:mb-8 md:text-4xl md:pl-1"> My Projects </div>
 
-          <div className="flex flex-row gap-20 justify-center items-center flex-wrap max-w-[1600px] sm:gap-6 sm:max-w-[500px] md:max-w-[550px]">
+          <div className="flex flex-row gap-20 justify-center items-center flex-wrap max-w-[1600px] sm:gap-6 sm:max-w-[500px] md:max-w-[550px] md:gap-10 lg:gap-10">
             <a href="https://github.com/IshpreetNagi/Tempestuous-Turrets" target="_blank" rel="noopener noreferrer">
               <div className="flex bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-6 w-176 h-88 rounded-3xl overflow-hidden box-select-hover sm:w-68 sm:h-40 sm:rounded-2xl sm:px-4 md:w-136 md:h-72 md:rounded-2xl">
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
