@@ -10,9 +10,11 @@
 }
 
 @layer base {
-  html {
+  html, body {
     @apply font-sans;
     scroll-behavior: smooth;
+    background-color: var(--background-color);
+    color-scheme: dark; /* helps Safari use dark UI for scrollbars/inputs */
   }
 
   h1 {

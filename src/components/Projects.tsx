@@ -177,19 +177,6 @@ export default function Projects() {
                         TypeScript
                         </div>
                       </div>
-                      {/* <div className="relative group inline-block">
-                        <img 
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-                          alt="JavaScript Icon"
-                          className="w-8 h-8"
-                        />
-                        <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2
-                                      bg-gray-800 text-white text-sm rounded py-1 px-2
-                                        opacity-0 invisible group-hover:opacity-100 group-hover:visible
-                                        transition-opacity duration-300 whitespace-nowrap z-50">
-                        JavaScript
-                        </div>
-                      </div> */}
                       <div className="relative group inline-block">
                         <img 
                           src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg"
