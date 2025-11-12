@@ -31,7 +31,13 @@ function Waves() {
   );
 }
 
-function ScrollingText({ text, className }: { text: string; className?: string }) {
+function ScrollingText({
+  text,
+  className,
+}: {
+  text: string;
+  className?: string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
@@ -72,7 +78,10 @@ function ScrollingText({ text, className }: { text: string; className?: string }
       const textWidth = textRef.current.scrollWidth;
       const maxOffset = -(textWidth - containerWidth); // full scrollable distance
       const baseSpeed = 1.5;
-      const speed = Math.max(0.5, baseSpeed * ((textWidth - containerWidth) / 600));
+      const speed = Math.max(
+        0.5,
+        baseSpeed * ((textWidth - containerWidth) / 600)
+      );
 
       setOffset((prev) => {
         if (direction === "left") {
@@ -156,7 +165,9 @@ function MusicPlayer() {
             <div className="relative w-20 h-20 flex-shrink-0 sm:w-12 sm:h-12">
               <img
                 src={
-                  nowPlaying.image.find((img) => img.size === "extralarge")?.["#text"] || ""
+                  nowPlaying.image.find((img) => img.size === "extralarge")?.[
+                    "#text"
+                  ] || ""
                 }
                 alt="Album Art"
                 className="w-full h-full object-cover rounded-xl shadow-lg"
@@ -166,8 +177,13 @@ function MusicPlayer() {
               </div>
             </div>
             <div className="flex flex-col ml-6 gap-1 w-60 sm:ml-4 sm:gap-0 sm:w-28">
-              <ScrollingText text={nowPlaying.name} className="text-3xl sm:text-lg" />
-              <p className="text-lg sm:text-[10px]">{nowPlaying.artist["#text"]}</p>
+              <ScrollingText
+                text={nowPlaying.name}
+                className="text-3xl sm:text-lg"
+              />
+              <p className="text-lg sm:text-[10px]">
+                {nowPlaying.artist["#text"]}
+              </p>
             </div>
           </div>
         </div>
@@ -180,16 +196,22 @@ function MusicPlayer() {
             <div className="relative w-20 h-20 flex-shrink-0 sm:w-12 sm:h-12">
               <img
                 src={
-                  lastPlayed.image.find((img) => img.size === "extralarge")?.["#text"] ||
-                  ""
+                  lastPlayed.image.find((img) => img.size === "extralarge")?.[
+                    "#text"
+                  ] || ""
                 }
                 alt="Album Art"
                 className="w-full h-full object-cover rounded-xl shadow-lg"
               />
             </div>
             <div className="flex flex-col ml-6 gap-1 w-60 sm:ml-4 sm:gap-0 sm:w-28">
-              <ScrollingText text={lastPlayed.name} className="text-3xl sm:text-lg" />
-              <p className="text-lg sm:text-[10px]">{lastPlayed.artist["#text"]}</p>
+              <ScrollingText
+                text={lastPlayed.name}
+                className="text-3xl sm:text-lg"
+              />
+              <p className="text-lg sm:text-[10px]">
+                {lastPlayed.artist["#text"]}
+              </p>
             </div>
           </div>
         </div>

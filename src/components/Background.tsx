@@ -1,7 +1,7 @@
-// Background recieved from: https://github.com/raulrls/Astro-Shadcn-portfolio 
+// Background recieved from: https://github.com/raulrls/Astro-Shadcn-portfolio
 // Add this in footer of page: Background animation by Raúl Isaac (then link to his github portflio)
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 interface Bubble {
   x: number;
@@ -20,7 +20,7 @@ export default function Background() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const setCanvasSize = () => {
@@ -54,13 +54,19 @@ export default function Background() {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      const baseColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--Bubble-color');
-      const [br, bg, bb] = baseColor.match(/\d+/g)?.map(Number) ?? [255, 255, 255];
+      const baseColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--Bubble-color");
+      const [br, bg, bb] = baseColor.match(/\d+/g)?.map(Number) ?? [
+        255, 255, 255,
+      ];
 
-      const accentColor = getComputedStyle(document.documentElement)
-        .getPropertyValue('--accent-Bubble-color');
-      const [ar, ag, ab] = accentColor.match(/\d+/g)?.map(Number) ?? [6, 182, 212];
+      const accentColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue("--accent-Bubble-color");
+      const [ar, ag, ab] = accentColor.match(/\d+/g)?.map(Number) ?? [
+        6, 182, 212,
+      ];
 
       Bubbles.current.forEach((bubble) => {
         bubble.y += bubble.speed;
@@ -98,11 +104,11 @@ export default function Background() {
     initBubbles();
     animate();
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       window.removeEventListener("resize", setCanvasSize);
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
       observer.disconnect();
     };
   }, []);
@@ -111,7 +117,7 @@ export default function Background() {
     <canvas
       ref={canvasRef}
       className="absolute top-0 left-0 z-0 w-full"
-      style={{ background: 'var(--background-color)' }}
+      style={{ background: "var(--background-color)" }}
     />
   );
 }
