@@ -374,17 +374,17 @@ function MusicPlayer() {
   }, []);
   return /* @__PURE__ */ jsx("div", { className: "text-white", children: nowPlaying ? /* @__PURE__ */ jsxs("div", { className: "flex flex-row gap-9 sm:flex-col sm:gap-4 md:flex-col md:gap-4", children: [
     /* @__PURE__ */ jsx("h2", { className: "text-lg text-[rgb(29,185,84)] mt-3 sm:text-sm sm:mt-9", children: "Currently jamming to..." }),
-    /* @__PURE__ */ jsxs("div", { className: "flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80 sm:scale-100 sm:w-52 sm:px-4 sm:py-3 sm:rounded-xl", children: [
+    /* @__PURE__ */ jsxs("div", { className: "flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80 sm:scale-100 sm:w-52 sm:px-4 sm:py-3 sm:rounded-lg", children: [
       /* @__PURE__ */ jsxs("div", { className: "relative w-20 h-20 flex-shrink-0 sm:w-12 sm:h-12", children: [
         /* @__PURE__ */ jsx(
           "img",
           {
             src: nowPlaying.image.find((img) => img.size === "extralarge")?.["#text"] || "",
             alt: "Album Art",
-            className: "w-full h-full object-cover rounded-xl shadow-lg"
+            className: "w-full h-full object-cover rounded-lg shadow-lg"
           }
         ),
-        /* @__PURE__ */ jsx("div", { className: "absolute inset-0 flex items-center justify-center bg-black/50 rounded-xl", children: /* @__PURE__ */ jsx(Waves, {}) })
+        /* @__PURE__ */ jsx("div", { className: "absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg", children: /* @__PURE__ */ jsx(Waves, {}) })
       ] }),
       /* @__PURE__ */ jsxs("div", { className: "flex flex-col ml-6 gap-1 w-60 sm:ml-4 sm:gap-0 sm:w-28", children: [
         /* @__PURE__ */ jsx(
@@ -475,7 +475,7 @@ function Projects() {
       viewport: { once: true, amount: 0.2 },
       transition: { duration: 1 },
       children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col justify-start z-10 overflow-hidden relative", children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex text-[52px] text-white mb-11 pl-19 sm:text-3xl sm:justify-center sm:pl-0 sm:mb-8 md:text-4xl md:pl-1 xl:pl-14", children: [
+        /* @__PURE__ */ jsxs("div", { className: "flex text-[52px] text-white mb-11 pl-19 sm:text-3xl sm:justify-center sm:pl-0 sm:mb-8 md:text-4xl md:pl-1 xl:pl-20", children: [
           " ",
           "My Projects",
           " "
