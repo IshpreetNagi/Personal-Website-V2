@@ -201,7 +201,7 @@ function MusicPlayer() {
                   ] || ""
                 }
                 alt="Album Art"
-                className="w-full h-full object-cover rounded-xl shadow-lg"
+                className="w-full h-full object-cover rounded-lg shadow-lg"
               />
             </div>
             <div className="flex flex-col ml-6 gap-1 w-60 sm:ml-4 sm:gap-0 sm:w-28">
