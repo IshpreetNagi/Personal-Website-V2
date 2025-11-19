@@ -15,7 +15,7 @@ export default function Projects() {
         transition={{ duration: 1.0 }}
       >
         <div className="flex flex-col justify-start z-10 overflow-hidden relative">
-          <div className="flex text-[52px] text-white mb-11 pl-19 sm:text-3xl sm:justify-center sm:pl-0 sm:mb-8 md:text-4xl md:pl-1 xl:pl-14">
+          <div className="flex text-[52px] text-white mb-11 pl-19 sm:text-3xl sm:justify-center sm:pl-0 sm:mb-8 md:text-4xl md:pl-1 xl:pl-20">
             {" "}
             My Projects{" "}
           </div>
