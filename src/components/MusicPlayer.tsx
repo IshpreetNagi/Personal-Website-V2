@@ -161,7 +161,7 @@ function MusicPlayer() {
           <h2 className="text-lg text-[rgb(29,185,84)] mt-3 sm:text-sm sm:mt-9">
             Currently jamming to...
           </h2>
-          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80 sm:scale-100 sm:w-52 sm:px-4 sm:py-3 sm:rounded-xl">
+          <div className="flex flex-row items-center justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] px-5 py-4 w-104 rounded-2xl overflow-hidden origin-left scale-80 sm:scale-100 sm:w-52 sm:px-4 sm:py-3 sm:rounded-lg">
             <div className="relative w-20 h-20 flex-shrink-0 sm:w-12 sm:h-12">
               <img
                 src={
@@ -170,9 +170,9 @@ function MusicPlayer() {
                   ] || ""
                 }
                 alt="Album Art"
-                className="w-full h-full object-cover rounded-xl shadow-lg"
+                className="w-full h-full object-cover rounded-lg shadow-lg"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-xl">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50 rounded-lg">
                 <Waves />
               </div>
             </div>

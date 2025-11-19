@@ -1,0 +1,43 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import Background from '../components/Background';
+
+import Home from '../components/Home';
+import About from '../components/About';
+import Projects from '../components/Projects';
+
+const year = new Date().getFullYear();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#0a0422" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Ishpreet Nagi</title>
+    <link rel="icon" type="image/png" href="/images/hand_waving.png"/>
+  </head>
+  <body class="overflow-x-hidden">
+    <Background client:load/>
+    <div class="relative z-10">
+      <Sidebar client:load />
+      <Navbar client:load />
+      <section id="home" class="flex items-center justify-center relative min-h-screen pt-24 -mt-36 pb-20 overflow-hidden sm:-mt-28">
+        <Home client:load />
+      </section>
+      <section id="about" class="flex items-center justify-center relative min-h-screen overflow-hidden sm:pt-22 md:pt-28">
+        <About client:load />
+      </section>
+      <section id="projects" class="flex items-center justify-center relative min-h-[auto] pt-10 md:min-h-screen lg:min-h-screen overflow-hidden sm:pt-22 md:pt-28">
+        <Projects client:load />
+      </section>
+      <footer class="text-center text-white/40 text-xs py-4 sm:scale-70 sm:origin-bottom md:scale-70 md:origin-bottom xl:pt-20">
+        <p>&copy; {year} Ishpreet Nagi. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>
+
