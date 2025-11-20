@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 
-const year = new Date().getFullYear();
-
-// Links for icons: https://devicon.dev
-
 export default function Projects() {
   return (
     <div className="flex flex-col justify-start z-10 lg:scale-83">
