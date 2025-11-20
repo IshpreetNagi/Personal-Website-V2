@@ -15,9 +15,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <ul>
-        <li><a href="#key-features">Key Features</a></li>
-      </ul>
+      <a href="#key-features">Key Features</a>
     </li>
     <li><a href="#built-with">Built With</a></li>
     <li><a href="#design-process">Design Process</a>
@@ -30,7 +28,7 @@
   </ol>
 </details>
 
-### Key Features
+## Key Features
 
 - Designed and developed a responsive single-page portfolio site with a minimalist aesthetic, streamlining navigation while highlighting key projects and interests.
 - Developed an interactive UI with reactive background animations and device-adaptive rendering for consistent performance on mobile and desktop.
@@ -64,4 +62,3 @@ INSERT STORY HERE
 - Icons imported from [Devicon](https://devicon.dev/).
 - Background animation by [Raúl Isaac](https://github.com/raulrls/Astro-Shadcn-portfolio).
 - Thank you to [owengretzinger](https://github.com/owengretzinger) for this README template.
-  
