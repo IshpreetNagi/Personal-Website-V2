@@ -61,4 +61,4 @@ INSERT STORY HERE
   - [Owen Gretzinger](https://www.owengretzinger.com/)
 - Icons imported from [Devicon](https://devicon.dev/).
 - Background animation by [Raúl Isaac](https://github.com/raulrls/Astro-Shadcn-portfolio).
-- Thank you to [owengretzinger](https://github.com/owengretzinger) for this README template.
+- Thank you to [Owen Gretzinger](https://github.com/owengretzinger) for this README template.
