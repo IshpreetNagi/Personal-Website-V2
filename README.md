@@ -15,7 +15,6 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#key-features">Key Features</a></li>
       </ul>
@@ -30,10 +29,6 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
-
-## About The Project
-
-Brief description of the project.
 
 ### Key Features
 
@@ -69,5 +64,4 @@ INSERT STORY HERE
 - Icons imported from [Devicon](https://devicon.dev/).
 - Background animation by [Raúl Isaac](https://github.com/raulrls/Astro-Shadcn-portfolio).
 - Thank you to [owengretzinger](https://github.com/owengretzinger) for this README template.
-
-
+  
