@@ -18,12 +18,6 @@
       <a href="#key-features">Key Features</a>
     </li>
     <li><a href="#built-with">Built With</a></li>
-    <li><a href="#design-process">Design Process</a>
-      <ul>
-        <li><a href="#original-design">Original Design</a></li>
-        <li><a href="#design-changes">Design Changes</a></li>
-      </ul>
-    </li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
@@ -41,23 +35,13 @@
 - TypeScript
 - Tailwind CSS
 
-## Design Process
-
-### Original Design
-
-INSERT STORY HERE
-
-### Design Changes
-
-INSERT STORY HERE
-
 ## Acknowledgments
 
 - Design inspirations:
   - [Jason Huang](https://www.jhuang.dev/)
   - [Elite Lu](https://elitelu.com/)
   - [Selina Kim](https://selinakim.ca/)
-  - Insert James' website
+  - [James Nickoli](https://jamesnicko.li/)
   - [Owen Gretzinger](https://www.owengretzinger.com/)
 - Icons imported from [Devicon](https://devicon.dev/).
 - Background animation by [Raúl Isaac](https://github.com/raulrls/Astro-Shadcn-portfolio).
