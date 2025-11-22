@@ -1,6 +1,3 @@
-// Background recieved from: https://github.com/raulrls/Astro-Shadcn-portfolio
-// Add this in footer of page: Background animation by Raúl Isaac (then link to his github portflio)
-
 import React, { useEffect, useRef } from "react";
 
 interface Bubble {

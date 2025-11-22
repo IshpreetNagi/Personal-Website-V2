@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import "../styles/global.css"; // Ensure global styles are imported
+import "../styles/global.css";
 
 const handleCopy = () => {
   navigator.clipboard.writeText("ishpreetnagi@gmail.com");
