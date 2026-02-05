@@ -10,7 +10,7 @@ const handleCopy = () => {
 const SocialIcons = () => (
   <div className=" flex flex-col gap-7 items-center">
     <a
-      href="/files/Ishpreet_Nagi_Resume.pdf"
+      href="https://ishpreetnagi.github.io/Resume/resume.pdf"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Resume"

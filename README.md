@@ -24,16 +24,19 @@
 
 ## Key Features
 
-- Designed and developed a responsive single-page portfolio site with a minimalist aesthetic, streamlining navigation while highlighting key projects and interests.
-- Developed an interactive UI with reactive background animations and device-adaptive rendering for consistent performance on mobile and desktop.
-- Integrated Last.fm API to display real-time listening activity from Spotify, including currently playing tracks and last played.
+- A completely original and streamlined design that is minimalist as not to overwhelm the viewer, while relaying all important information
+- Implemented a dynamic background that is reactive to the user's cursor, allowing for an interactive design that adds to the aesthetic of the website
+- Created the entire unique design and aesthetic from scratch, taking inspiration from the websites of peers and established UI designs like iOS
+- Integrated Last.fm API to display real-time listening activity from Spotify, including currently playing tracks and last played
 
 ## Built With
 
-- Astro.js
-- React
-- TypeScript
-- Tailwind CSS
+- [Astro.js](https://astro.build/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Devicon](https://devicon.dev/)
+- [Vercel](https://vercel.com/home)
 
 ## Acknowledgments
 
@@ -43,6 +46,5 @@
   - [Selina Kim](https://selinakim.ca/)
   - [James Nickoli](https://jamesnicko.li/)
   - [Owen Gretzinger](https://www.owengretzinger.com/)
-- Icons imported from [Devicon](https://devicon.dev/).
 - Background animation by [Raúl Isaac](https://github.com/raulrls/Astro-Shadcn-portfolio).
 - Thank you to [Owen Gretzinger](https://github.com/owengretzinger) for this README template.
