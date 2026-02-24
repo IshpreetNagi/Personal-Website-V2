@@ -14,47 +14,55 @@ export default function HomePage() {
           A bit about me...
         </div>
 
-        <div className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 px-6 rounded-3xl mx-auto sm:w-68 sm:rounded-2xl sm:justify-center sm:px-3 sm:py-8 sm:m-auto md:rounded-2xl md:justify-center md:py-5">
-          <div className="flex items-center justify-center w-360 h-176 mx-auto drop-shadow-md sm:flex-col sm:w-68 sm:h-auto md:flex-col md:h-auto md:pt-6">
-            <div className="flex-shrink-0 px-7 sm:px-0">
-              <img
-                src={"/images/Last-Laugh.jpg"}
-                alt="Picture of Ishpreet"
-                className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:rounded-2xl sm:w-54 sm:h-54 md:w-112 md:h-112"
-              />
-            </div>
-            <div className="flex flex-col text-white text-lg overflow-auto gap-6 text-left px-8 pt-5 sm:text-xs sm:w-68 sm:gap-0 sm:pt-7 md:w-128 md:pt-8 md:text-base">
-              <div className="flex-shrink-0">
-                Hey there, I’m{" "}
-                <span className="text-[rgb(6,182,212)] font-bold">
-                  Ishpreet Nagi
-                </span>
-                , a software developer based in Canada.
-                <br />
-                <br />
-                Apart from being the best programmer in my family (I am the only
-                one), I am currently completing my fourth and final year in
-                computer science at McMaster University.
-                <br />
-                <br />
-                I am intrigued by all aspects of the software development
-                landscape, reveling in the frustration that accompanies the
-                methodical process of backend development, as well as the
-                countless hours lost in frontend development. Apart from those
-                two, I spend my time learning and developing my skills within
-                whichever topic has caught my fascination. My recent interests
-                include machine learning, game development, and expanding upon
-                my pre-existing frontend development knowledge with more
-                experience, like this website.
-                <br />
-                <br />
-                Beyond my technical prowess and interests, you can find me
-                enjoying a self-made latte with a nice movie during a quiet
-                night, getting lost in other worlds through a fun video game, or
-                simply jamming out to a track as I imagine myself in the music
-                video.
+        <div className="flex items-start bg-white/5 backdrop-blur-sm border border-white/10 p-5 rounded-3xl mx-auto sm:w-68 sm:rounded-2xl sm:justify-center sm:p-4 sm:m-auto md:rounded-2xl md:justify-center md:p-5">
+          <div className="flex flex-col items-start w-360 h-288 gap-9 mx-auto drop-shadow-md p-9 sm:flex-col sm:w-68 sm:h-auto sm:p-6 md:flex-col md:h-auto md:p-6">
+            <div className="flex justify-center">
+              <div className="flex items-center gap-12 h-148 sm:flex-col sm:h-auto sm:gap-4">
+                <div className="flex-shrink-0 peer">
+                  <img
+                    src={"/images/Last-Laugh.jpg"}
+                    alt="Picture of Ishpreet"
+                    className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:rounded-2xl sm:w-54 sm:h-54 md:w-112 md:h-112"
+                  />
+                </div>
+                <div className="flex flex-col text-white text-xl overflow-auto text-left transition-transform duration-300 peer-hover:translate-x-4 sm:text-xs sm:w-68 sm:gap-0 sm:peer-hover:translate-x-0 md:w-128 md:text-base">
+                  <div className="flex-shrink-0">
+                    Hey there, I’m{" "}
+                    <span className="text-[rgb(6,182,212)] font-bold">
+                      Ishpreet Nagi
+                    </span>
+                    , a software developer based in Canada.
+                    <br />
+                    <br />
+                    Apart from being the best programmer in my family (I am the
+                    only one), I am currently completing my fourth and final
+                    year in computer science at McMaster University.
+                    <br />
+                    <br />
+                    I am intrigued by all aspects of the software development
+                    landscape, reveling in the frustration that accompanies the
+                    methodical process of backend development, as well as the
+                    countless hours lost in frontend development. Apart from
+                    those two, I spend my time learning and developing my skills
+                    within whichever topic has caught my fascination. My recent
+                    interests include machine learning, game development, and
+                    expanding upon my pre-existing frontend development
+                    knowledge with more experience, like this website.
+                    <br />
+                    <br />
+                    Beyond my technical prowess and interests, you can find me
+                    enjoying a self-made latte with a nice movie during a quiet
+                    night, getting lost in other worlds through a fun video
+                    game, or simply jamming out to a track as I imagine myself
+                    in the music video.
+                  </div>
+                </div>
               </div>
-              <div className="sm:origin-left sm:-mt-5 md:scale-95 md:origin-top-left">
+            </div>
+            <div className="flex flex-col gap-4">
+              <h2 className="text-4xl text-gray-400">Recent Activity</h2>
+              <div className="flex flex-row items-start justify-center gap-2">
+                <MusicPlayer />
                 <MusicPlayer />
               </div>
             </div>
