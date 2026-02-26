@@ -61,32 +61,47 @@ export const GET: APIRoute = async () => {
           progressMs = nowData.progress_ms || 0;
         }
       }
+    } else {
+      console.log("Now playing endpoint status:", nowPlayingRes.status);
     }
 
     // Handle most recent track
     if (recentRes.status === 200) {
       const recentData = await recentRes.json();
       lastPlayed = recentData.items?.[0]?.track || null;
+    } else if (recentRes.status === 429) {
+      console.warn("Recently played endpoint rate limited (429)");
+    } else {
+      console.log("Recently played endpoint status:", recentRes.status);
+      const text = await recentRes.text();
+      console.log("Response body:", text);
     }
 
     // Format tracks for frontend
     const formatTrack = (track: any, progress = 0) => {
       if (!track) return null;
-      return {
-        title: track.name,
-        artist: track.artists.map((a: any) => a.name).join(", "),
-        album: track.album.name,
-        albumImage: track.album.images[0]?.url,
-        songUrl: track.external_urls.spotify, // clickable link to Spotify
-        durationMs: track.duration_ms,
-        progressMs: progress,
-      };
+      try {
+        return {
+          title: track.name,
+          artist: track.artists?.map((a: any) => a.name).join(", "),
+          album: track.album?.name,
+          albumImage: track.album?.images?.[0]?.url,
+          songUrl: track.external_urls?.spotify,
+          durationMs: track.duration_ms,
+          progressMs: progress,
+        };
+      } catch (error) {
+        console.error("Error formatting track:", error);
+        return null;
+      }
     };
 
     return new Response(
       JSON.stringify({
         nowPlaying: formatTrack(nowPlaying, progressMs),
-        lastPlayed: formatTrack(lastPlayed),
+        lastPlayed: lastPlayed
+          ? formatTrack(lastPlayed, lastPlayed.duration_ms || 0)
+          : null,
       }),
       {
         status: 200,

@@ -59,10 +59,9 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               <h2 className="text-4xl text-gray-400">Recent Activity</h2>
               <div className="flex flex-row items-start justify-center gap-2">
-                <MusicPlayer />
                 <MusicPlayer />
               </div>
             </div>
