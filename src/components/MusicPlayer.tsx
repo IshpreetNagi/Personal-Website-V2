@@ -360,7 +360,7 @@ function MusicPlayer() {
 
     fetchTracks();
     // Fetch every 60 seconds, progress bar animates smoothly in between
-    const interval = setInterval(fetchTracks, 60000);
+    const interval = setInterval(fetchTracks, 30000);
 
     return () => clearInterval(interval);
   }, []);
@@ -368,7 +368,7 @@ function MusicPlayer() {
   return (
     <div className="text-white">
       {nowPlaying ? (
-        <div className="flex flex-col gap-4 pl-4 sm:gap-4">
+        <div className="flex flex-col gap-4 sm:gap-4">
           <h2 className="text-lg text-white">Currently listening to...</h2>
           <div className="flex flex-col gap-4 items-start justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] p-5 w-auto rounded-3xl overflow-hidden origin-left sm:scale-100 sm:w-52 sm:p-4 sm:rounded-xl">
             <div className="relative w-54 h-auto flex-shrink-0 sm:w-12 sm:h-12">
@@ -405,7 +405,7 @@ function MusicPlayer() {
           </div>
         </div>
       ) : lastPlayed ? (
-        <div className="flex flex-col gap-4 pl-4 sm:gap-4">
+        <div className="flex flex-col gap-4 sm:gap-4">
           <h2 className="text-lg text-white">Previously listening to...</h2>
           <div className="flex flex-col gap-4 items-start justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] p-5 w-auto rounded-3xl overflow-hidden origin-left sm:scale-100 sm:w-52 sm:p-4 sm:rounded-xl">
             <div className="relative w-54 h-auto flex-shrink-0 sm:w-12 sm:h-12">
@@ -447,9 +447,9 @@ function MusicPlayer() {
           </div>
         </div>
       ) : (
-        <div className="mt-6 pl-4">
+        <div className="mt-3">
           <h2 className="text-lg text-[rgb(29,185,84)]">
-            Error connecting to Spotify.
+            Spotify being goofy right now, check back later!
           </h2>
         </div>
       )}

@@ -6,6 +6,12 @@ const NOW_PLAYING_ENDPOINT =
 const RECENTLY_PLAYED_ENDPOINT =
   "https://api.spotify.com/v1/me/player/recently-played?limit=1";
 
+// In-memory cache
+let cachedResponse: any = null;
+let cacheTimestamp = 0;
+let rateLimitResetTime = 0;
+const CACHE_DURATION = 15000; // 15 seconds
+
 async function getAccessToken() {
   const client_id =
     process.env.SPOTIFY_CLIENT_ID || import.meta.env.SPOTIFY_CLIENT_ID;
@@ -36,6 +42,17 @@ async function getAccessToken() {
 
 export const GET: APIRoute = async () => {
   try {
+    // Check if cache is still valid
+    const now = Date.now();
+    if (cachedResponse && now - cacheTimestamp < CACHE_DURATION) {
+      return new Response(JSON.stringify(cachedResponse), {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
     const access_token = await getAccessToken();
 
     // Fetch currently playing and recently played tracks
@@ -53,13 +70,39 @@ export const GET: APIRoute = async () => {
     let progressMs = 0;
 
     // Handle currently playing track
-    if (nowPlayingRes.status === 200) {
-      const nowData = await nowPlayingRes.json();
-      if (nowData?.item) {
-        if (nowData.is_playing) {
-          nowPlaying = nowData.item;
-          progressMs = nowData.progress_ms || 0;
+    if (nowPlayingRes.status === 200 || nowPlayingRes.status === 204) {
+      // 200 = has content, 204 = no content (not currently playing)
+      if (nowPlayingRes.status === 200) {
+        const nowData = await nowPlayingRes.json();
+        if (nowData?.item) {
+          if (nowData.is_playing) {
+            nowPlaying = nowData.item;
+            progressMs = nowData.progress_ms || 0;
+          }
         }
+      }
+    } else if (nowPlayingRes.status === 429) {
+      const retryAfter = nowPlayingRes.headers.get("Retry-After");
+      const retrySeconds = parseInt(retryAfter || "60", 10);
+      console.log(
+        "Now playing rate limited. Retry after:",
+        retrySeconds,
+        "seconds",
+      );
+      rateLimitResetTime = Math.max(
+        rateLimitResetTime,
+        now + retrySeconds * 1000,
+      );
+      // Return cache if available during rate limit
+      if (cachedResponse) {
+        return new Response(JSON.stringify(cachedResponse), {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json",
+            "X-Cache": "stale",
+            "X-Reason": "Rate limited, returning cached response",
+          },
+        });
       }
     } else {
       console.log("Now playing endpoint status:", nowPlayingRes.status);
@@ -70,7 +113,28 @@ export const GET: APIRoute = async () => {
       const recentData = await recentRes.json();
       lastPlayed = recentData.items?.[0]?.track || null;
     } else if (recentRes.status === 429) {
-      console.warn("Recently played endpoint rate limited (429)");
+      const retryAfter = recentRes.headers.get("Retry-After");
+      const retrySeconds = parseInt(retryAfter || "60", 10);
+      console.log(
+        "Recently played rate limited. Retry after:",
+        retrySeconds,
+        "seconds",
+      );
+      rateLimitResetTime = Math.max(
+        rateLimitResetTime,
+        now + retrySeconds * 1000,
+      );
+      // Return cache if available during rate limit
+      if (cachedResponse) {
+        return new Response(JSON.stringify(cachedResponse), {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json",
+            "X-Cache": "stale",
+            "X-Reason": "Rate limited, returning cached response",
+          },
+        });
+      }
     } else {
       console.log("Recently played endpoint status:", recentRes.status);
       const text = await recentRes.text();
@@ -96,23 +160,24 @@ export const GET: APIRoute = async () => {
       }
     };
 
-    return new Response(
-      JSON.stringify({
-        nowPlaying: formatTrack(nowPlaying, progressMs),
-        lastPlayed: lastPlayed
-          ? formatTrack(lastPlayed, lastPlayed.duration_ms || 0)
-          : null,
-      }),
-      {
-        status: 200,
-        headers: {
-          "Content-Type": "application/json",
-          "Cache-Control": "no-cache, no-store, must-revalidate",
-          Pragma: "no-cache",
-          Expires: "0",
-        },
+    const responseData = {
+      nowPlaying: formatTrack(nowPlaying, progressMs),
+      lastPlayed: lastPlayed
+        ? formatTrack(lastPlayed, lastPlayed.duration_ms || 0)
+        : null,
+    };
+
+    // Update cache and reset rate limit timer on successful fetch
+    cachedResponse = responseData;
+    cacheTimestamp = now;
+    rateLimitResetTime = 0;
+
+    return new Response(JSON.stringify(responseData), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+    });
   } catch (err) {
     console.error(err);
     return new Response(
