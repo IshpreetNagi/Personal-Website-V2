@@ -33,8 +33,8 @@ export default function HomePage() {
                   />
                 </div>
                 <motion.div
-                  animate={{ x: picExpanded ? 16 : 0 }}
-                  transition={{ duration: 0.3 }}
+                  animate={{ x: picExpanded ? 13 : 0 }}
+                  transition={{ duration: 0.2 }}
                   className="flex flex-col text-white text-xl overflow-auto text-left sm:text-xs sm:w-68 sm:gap-0 sm:peer-hover:translate-x-0 md:w-128 md:text-base"
                 >
                   <div className="flex-shrink-0">
@@ -71,8 +71,8 @@ export default function HomePage() {
               </div>
             </div>
             <motion.div
-              animate={{ y: picExpanded ? 10 : 0 }}
-              transition={{ duration: 0.3 }}
+              animate={{ y: picExpanded ? 13 : 0 }}
+              transition={{ duration: 0.2 }}
               className="flex flex-col gap-6"
             >
               <h2 className="text-4xl text-gray-400">Recent Activity</h2>

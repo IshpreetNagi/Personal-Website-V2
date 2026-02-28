@@ -10,6 +10,12 @@ interface TrackInfo {
   progressMs: number;
 }
 
+interface UserInfo {
+  displayName: string;
+  profileImage: string;
+  externalUrl: string;
+}
+
 function ScrollingText({
   text,
   className,
@@ -281,6 +287,7 @@ function ScrollingTrackInfo({
 }
 
 function MusicPlayer() {
+  const [user, setUser] = useState<UserInfo | null>(null);
   const [nowPlaying, setNowPlaying] = useState<TrackInfo | null>(null);
   const [lastPlayed, setLastPlayed] = useState<TrackInfo | null>(null);
   const [smoothProgress, setSmoothProgress] = useState(0);
@@ -336,6 +343,18 @@ function MusicPlayer() {
     return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   };
 
+  const handleUserClick = (user: UserInfo | null) => {
+    if (user?.externalUrl) {
+      window.open(user.externalUrl, "_blank", "noopener noreferrer");
+    }
+  };
+
+  const handleTrackClick = (track: TrackInfo | null) => {
+    if (track?.songUrl) {
+      window.open(track.songUrl, "_blank", "noopener noreferrer");
+    }
+  };
+
   useEffect(() => {
     async function fetchTracks() {
       try {
@@ -344,22 +363,24 @@ function MusicPlayer() {
 
         if (data.error) {
           console.error("API error:", data.error);
+          setUser(null);
           setNowPlaying(null);
           setLastPlayed(null);
           return;
         }
 
+        setUser(data.user);
         setNowPlaying(data.nowPlaying);
         setLastPlayed(data.lastPlayed);
       } catch (error) {
         console.error("Error fetching tracks:", error);
+        setUser(null);
         setNowPlaying(null);
         setLastPlayed(null);
       }
     }
 
     fetchTracks();
-    // Fetch every 60 seconds, progress bar animates smoothly in between
     const interval = setInterval(fetchTracks, 30000);
 
     return () => clearInterval(interval);
@@ -368,9 +389,12 @@ function MusicPlayer() {
   return (
     <div className="text-white">
       {nowPlaying ? (
-        <div className="flex flex-col gap-4 sm:gap-4">
-          <h2 className="text-lg text-white">Currently listening to...</h2>
-          <div className="flex flex-col gap-4 items-start justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] p-5 w-auto rounded-3xl overflow-hidden origin-left sm:scale-100 sm:w-52 sm:p-4 sm:rounded-xl">
+        <div className="flex flex-col gap-4 sm:gap-3">
+          <h2 className="text-xl text-white">Currently listening to...</h2>
+          <div
+            onClick={() => handleTrackClick(nowPlaying)}
+            className="flex flex-col gap-4 items-start justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] p-5 w-auto rounded-3xl overflow-hidden origin-left sm:scale-100 sm:w-52 sm:p-4 sm:rounded-xl cursor-pointer"
+          >
             <div className="relative w-54 h-auto flex-shrink-0 sm:w-12 sm:h-12">
               <img
                 src={nowPlaying.albumImage || ""}
@@ -379,11 +403,13 @@ function MusicPlayer() {
               />
             </div>
             <div className="flex flex-col gap-2 w-52 sm:gap-0 sm:w-28">
-              <ScrollingTrackInfo
-                title={nowPlaying.title}
-                subtitle={`${nowPlaying.artist}`}
-                titleClassName="text-xl sm:text-lg"
-                subtitleClassName="text-md text-gray-400 sm:text-[10px]"
+              <ScrollingText
+                text={nowPlaying.title}
+                className="text-xl sm:text-lg"
+              />
+              <ScrollingText
+                text={`${nowPlaying.artist}`}
+                className="text-md text-gray-400 sm:text-[10px]"
               />
               <div className="mt-2">
                 <div className="h-1 w-full rounded-full bg-white/10">
@@ -393,21 +419,45 @@ function MusicPlayer() {
                   />
                 </div>
                 <div className="mt-1 flex justify-between text-[12px] text-white/70">
-                  <span>
-                    {formatDurationMs(
-                      Math.max(0, nowPlaying.durationMs - smoothProgress),
-                    )}
-                  </span>
+                  <span>{formatDurationMs(Math.max(0, smoothProgress))}</span>
                   <span>{formatDurationMs(nowPlaying.durationMs)}</span>
                 </div>
+              </div>
+            </div>
+            <div
+              onClick={() => handleUserClick(user)}
+              className="flex flex-row justify-between w-full cursor-pointer"
+            >
+              <div className="flex flex-row gap-2">
+                <img
+                  src={user?.profileImage}
+                  alt="User Profile"
+                  className="w-8 h-8 rounded-full"
+                />
+                <div className="flex self-center text-md text-white">
+                  {user?.displayName}
+                </div>
+              </div>
+              <div className="flex flex-row gap-2">
+                <div className="flex self-center text-md text-white">
+                  Follow me
+                </div>
+                <img
+                  src="/icons/Spotify_icon.svg.png"
+                  alt="Spotify Icon"
+                  className="w-8 h-8"
+                />
               </div>
             </div>
           </div>
         </div>
       ) : lastPlayed ? (
         <div className="flex flex-col gap-4 sm:gap-4">
-          <h2 className="text-lg text-white">Previously listening to...</h2>
-          <div className="flex flex-col gap-4 items-start justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] p-5 w-auto rounded-3xl overflow-hidden origin-left sm:scale-100 sm:w-52 sm:p-4 sm:rounded-xl">
+          <h2 className="text-xl text-white">Was listening to...</h2>
+          <div
+            onClick={() => handleTrackClick(lastPlayed)}
+            className="flex flex-col gap-4 items-start justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] p-5 w-auto rounded-3xl overflow-hidden origin-left sm:scale-100 sm:w-52 sm:p-4 sm:rounded-xl cursor-pointer"
+          >
             <div className="relative w-54 h-auto flex-shrink-0 sm:w-12 sm:h-12">
               <img
                 src={lastPlayed.albumImage || ""}
@@ -433,15 +483,35 @@ function MusicPlayer() {
                 </div>
                 <div className="mt-1 flex justify-between text-[12px] text-white/70">
                   <span>
-                    {formatDurationMs(
-                      Math.max(
-                        0,
-                        lastPlayed.durationMs - lastPlayed.progressMs,
-                      ),
-                    )}
+                    {formatDurationMs(Math.max(0, lastPlayed.progressMs))}
                   </span>
                   <span>{formatDurationMs(lastPlayed.durationMs)}</span>
                 </div>
+              </div>
+            </div>
+            <div
+              onClick={() => handleUserClick(user)}
+              className="flex flex-row justify-between w-full cursor-pointer"
+            >
+              <div className="flex flex-row gap-2">
+                <img
+                  src={user?.profileImage}
+                  alt="User Profile"
+                  className="w-8 h-8 rounded-full"
+                />
+                <div className="flex self-center text-md text-white">
+                  {user?.displayName}
+                </div>
+              </div>
+              <div className="flex flex-row gap-2">
+                <div className="flex self-center text-md text-white">
+                  Follow me
+                </div>
+                <img
+                  src="/icons/Spotify_icon.svg.png"
+                  alt="Spotify Icon"
+                  className="w-8 h-8"
+                />
               </div>
             </div>
           </div>

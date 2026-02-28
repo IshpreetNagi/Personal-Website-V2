@@ -5,6 +5,7 @@ const NOW_PLAYING_ENDPOINT =
   "https://api.spotify.com/v1/me/player/currently-playing";
 const RECENTLY_PLAYED_ENDPOINT =
   "https://api.spotify.com/v1/me/player/recently-played?limit=1";
+const USER_ENDPOINT = "https://api.spotify.com/v1/me";
 
 // In-memory cache
 let cachedResponse: any = null;
@@ -55,8 +56,11 @@ export const GET: APIRoute = async () => {
 
     const access_token = await getAccessToken();
 
-    // Fetch currently playing and recently played tracks
-    const [nowPlayingRes, recentRes] = await Promise.all([
+    // Fetch user profile, currently playing and recently played tracks
+    const [userRes, nowPlayingRes, recentRes] = await Promise.all([
+      fetch(USER_ENDPOINT, {
+        headers: { Authorization: `Bearer ${access_token}` },
+      }),
       fetch(NOW_PLAYING_ENDPOINT, {
         headers: { Authorization: `Bearer ${access_token}` },
       }),
@@ -65,9 +69,15 @@ export const GET: APIRoute = async () => {
       }),
     ]);
 
+    let user: any = null;
     let nowPlaying: any = null;
     let lastPlayed: any = null;
     let progressMs = 0;
+
+    // Handle user profile
+    if (userRes.status === 200) {
+      user = await userRes.json();
+    }
 
     // Handle currently playing track
     if (nowPlayingRes.status === 200 || nowPlayingRes.status === 204) {
@@ -161,6 +171,13 @@ export const GET: APIRoute = async () => {
     };
 
     const responseData = {
+      user: user
+        ? {
+            displayName: user.display_name,
+            profileImage: user.images?.[0]?.url,
+            externalUrl: user.external_urls?.spotify,
+          }
+        : null,
       nowPlaying: formatTrack(nowPlaying, progressMs),
       lastPlayed: lastPlayed
         ? formatTrack(lastPlayed, lastPlayed.duration_ms || 0)
