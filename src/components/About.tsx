@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import MusicPlayer from "./MusicPlayer";
+import MusicPlayer from "./widgets/MusicPlayer";
+import MovieShower from "./widgets/MovieShower";
 
 export default function HomePage() {
   const [picExpanded, setPicExpanded] = useState(false);
@@ -75,9 +76,10 @@ export default function HomePage() {
               transition={{ duration: 0.2 }}
               className="flex flex-col gap-6"
             >
-              <h2 className="text-4xl text-gray-400">Recent Activity</h2>
-              <div className="flex flex-row gap-2">
+              <h2 className="text-4xl text-gray-400">Activity Widgets</h2>
+              <div className="flex flex-row gap-16">
                 <MusicPlayer />
+                <MovieShower />
               </div>
             </motion.div>
           </div>

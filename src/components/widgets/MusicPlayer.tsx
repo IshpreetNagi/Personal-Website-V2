@@ -381,7 +381,7 @@ function MusicPlayer() {
     }
 
     fetchTracks();
-    const interval = setInterval(fetchTracks, 30000);
+    const interval = setInterval(fetchTracks, 15000);
 
     return () => clearInterval(interval);
   }, []);
@@ -390,7 +390,7 @@ function MusicPlayer() {
     <div className="text-white">
       {nowPlaying ? (
         <div className="flex flex-col gap-4 sm:gap-3">
-          <h2 className="text-xl text-white">Currently listening to...</h2>
+          <h2 className="text-x">Currently listening to...</h2>
           <div
             onClick={() => handleTrackClick(nowPlaying)}
             className="flex flex-col gap-4 items-start justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] p-5 w-auto rounded-3xl overflow-hidden origin-left sm:scale-100 sm:w-52 sm:p-4 sm:rounded-xl cursor-pointer"
@@ -434,14 +434,12 @@ function MusicPlayer() {
                   alt="User Profile"
                   className="w-8 h-8 rounded-full"
                 />
-                <div className="flex self-center text-md text-white">
+                <div className="flex self-center text-md">
                   {user?.displayName}
                 </div>
               </div>
               <div className="flex flex-row gap-2">
-                <div className="flex self-center text-md text-white">
-                  Follow me
-                </div>
+                <div className="flex self-center text-md">Follow me</div>
                 <img
                   src="/icons/Spotify_icon.svg.png"
                   alt="Spotify Icon"
@@ -453,7 +451,6 @@ function MusicPlayer() {
         </div>
       ) : lastPlayed ? (
         <div className="flex flex-col gap-4 sm:gap-4">
-          <h2 className="text-xl text-white">Was listening to...</h2>
           <div
             onClick={() => handleTrackClick(lastPlayed)}
             className="flex flex-col gap-4 items-start justify-start bg-[rgb(25,20,20)] border border-[rgb(29,185,84)] p-5 w-auto rounded-3xl overflow-hidden origin-left sm:scale-100 sm:w-52 sm:p-4 sm:rounded-xl cursor-pointer"
@@ -491,7 +488,7 @@ function MusicPlayer() {
             </div>
             <div
               onClick={() => handleUserClick(user)}
-              className="flex flex-row justify-between w-full cursor-pointer"
+              className="flex flex-row justify-between w-full"
             >
               <div className="flex flex-row gap-2">
                 <img
@@ -499,27 +496,18 @@ function MusicPlayer() {
                   alt="User Profile"
                   className="w-8 h-8 rounded-full"
                 />
-                <div className="flex self-center text-md text-white">
+                <div className="flex self-center text-lg">
                   {user?.displayName}
                 </div>
               </div>
-              <div className="flex flex-row gap-2">
-                <div className="flex self-center text-md text-white">
-                  Follow me
-                </div>
-                <img
-                  src="/icons/Spotify_icon.svg.png"
-                  alt="Spotify Icon"
-                  className="w-8 h-8"
-                />
-              </div>
             </div>
           </div>
+          <h2 className="text-m text-center">Spotify</h2>
         </div>
       ) : (
         <div className="mt-3">
           <h2 className="text-lg text-[rgb(29,185,84)]">
-            Spotify being goofy right now, check back later!
+            Spotify widget down, check back later!
           </h2>
         </div>
       )}
