@@ -14,7 +14,7 @@ export default function MovieShower() {
   useEffect(() => {
     async function fetchLatestMovie() {
       try {
-        const res = await fetch("/api/movies"); // <- changed endpoint
+        const res = await fetch("/api/movies");
         const data: MovieData = await res.json();
 
         if ((data as any).error) {
@@ -32,7 +32,7 @@ export default function MovieShower() {
 
     fetchLatestMovie();
 
-    const interval = setInterval(fetchLatestMovie, 15000); // refresh every 15s
+    const interval = setInterval(fetchLatestMovie, 60000);
     return () => clearInterval(interval);
   }, []);
 
