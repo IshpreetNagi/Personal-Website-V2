@@ -381,7 +381,7 @@ function MusicPlayer() {
     }
 
     fetchTracks();
-    const interval = setInterval(fetchTracks, 15000);
+    const interval = setInterval(fetchTracks, 30000);
 
     return () => clearInterval(interval);
   }, []);
