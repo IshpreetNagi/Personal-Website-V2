@@ -8,6 +8,7 @@ interface MovieData {
   description?: string | null;
   genres?: string[];
   runtime?: number | null;
+  tmdb_score?: number | null;
 }
 
 function ScrollingMovieName({
@@ -212,6 +213,16 @@ export default function MovieShower() {
                       ""
                     )}
                   </div>
+                </div>
+              </div>
+              <div className="flex flex-col gap-1 text-md text-[rgb(153,170,187)]">
+                <div>
+                  {movie.tmdb_score !== null ? (
+                    <>
+                      <span className="text-[rgb(255,128,0)]">TMDB:</span>{" "}
+                      {movie.tmdb_score?.toFixed(1)}/10
+                    </>
+                  ) : null}
                 </div>
               </div>
               <div className="text-md text-[rgb(153,170,187)] overflow-auto">

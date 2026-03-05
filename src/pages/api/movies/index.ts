@@ -1,7 +1,7 @@
 // src/pages/api/latest-letterboxd.ts
 import type { APIRoute } from "astro";
 
-interface LatestLetterboxdResponse {
+interface MovieInfoResponse {
   title: string;
   poster: string | null;
   watched_date?: string;
@@ -9,6 +9,7 @@ interface LatestLetterboxdResponse {
   description?: string | null;
   genres?: string[];
   runtime?: number | null;
+  tmdb_score?: number | null;
 }
 
 function extractPoster(item: any): string | null {
@@ -108,12 +109,15 @@ async function searchTmdbByNameAndYear(movieName: string, year: string | null) {
     description: data.overview ?? null,
     genres: data.genres?.map((g: any) => g.name) ?? [],
     runtime: data.runtime ?? null,
+    tmdb_score: data.vote_average
+      ? Math.round(data.vote_average * 10) / 10
+      : null,
   };
 }
 
 // Cache storage
 let cache: {
-  data: LatestLetterboxdResponse | null;
+  data: MovieInfoResponse | null;
   timestamp: number;
 } = {
   data: null,
@@ -172,7 +176,7 @@ export const GET: APIRoute = async () => {
       tmdbInfo = await searchTmdbByNameAndYear(movieName, year);
     }
 
-    const response: LatestLetterboxdResponse = {
+    const response: MovieInfoResponse = {
       title: movieName || "",
       poster: extractPoster(latest),
       watched_date: latest.pubDate,
