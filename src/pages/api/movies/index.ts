@@ -5,6 +5,8 @@ interface MovieInfoResponse {
   title: string;
   poster: string | null;
   watched_date?: string;
+  my_rating?: number | null;
+  movie_link?: string | null;
   release_year?: string | null;
   description?: string | null;
   genres?: string[];
@@ -31,9 +33,23 @@ function extractYear(item: any): string | null {
   const title = item.title;
   if (!title) return null;
 
-  // Extract year from format: "Movie Name, 2024 - ★★★"
   const yearMatch = title.match(/,\s*(\d{4})/);
   return yearMatch ? yearMatch[1] : null;
+}
+
+function extractRating(item: any): number | null {
+  const title = item.title;
+  if (!title) return null;
+
+  const ratingMatch = title.match(/-\s*([★½]+)/);
+  if (!ratingMatch) return null;
+
+  const stars = ratingMatch[1];
+  const fullStars = (stars.match(/★/g) || []).length;
+  const halfStars = (stars.match(/½/g) || []).length;
+  const scoreOutOfTen = fullStars * 2 + halfStars;
+
+  return scoreOutOfTen > 0 ? scoreOutOfTen : null;
 }
 
 async function searchTmdbByNameAndYear(movieName: string, year: string | null) {
@@ -112,6 +128,7 @@ async function searchTmdbByNameAndYear(movieName: string, year: string | null) {
     tmdb_score: data.vote_average
       ? Math.round(data.vote_average * 10) / 10
       : null,
+    movie_link: `https://www.themoviedb.org/movie/${match.id}`,
   };
 }
 
@@ -180,6 +197,7 @@ export const GET: APIRoute = async () => {
       title: movieName || "",
       poster: extractPoster(latest),
       watched_date: latest.pubDate,
+      my_rating: extractRating(latest),
       ...tmdbInfo,
     };
 
