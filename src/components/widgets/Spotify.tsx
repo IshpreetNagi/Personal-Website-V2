@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import ScrollEffect from "../ui/ScrollEffect";
 
 interface TrackInfo {
   title: string;
@@ -24,276 +25,6 @@ function formatDurationMs(durationMs: number) {
   return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
-function ScrollingText({
-  text,
-  className,
-}: {
-  text: string;
-  className?: string;
-}) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLParagraphElement>(null);
-  const [isOverflowing, setIsOverflowing] = useState(false);
-  const [offset, setOffset] = useState(0);
-
-  // Check if text overflows container
-  useEffect(() => {
-    const checkOverflow = () => {
-      if (!containerRef.current || !textRef.current) return;
-
-      const containerWidth = containerRef.current.clientWidth;
-      const textWidth = textRef.current.scrollWidth;
-
-      setIsOverflowing(textWidth > containerWidth);
-    };
-
-    checkOverflow();
-    window.addEventListener("resize", checkOverflow);
-    return () => window.removeEventListener("resize", checkOverflow);
-  }, [text]);
-
-  // Scroll effect
-  useEffect(() => {
-    if (!isOverflowing) {
-      setOffset(0);
-      return;
-    }
-
-    let animationFrame: number;
-    let timeoutId: number;
-    let direction: "left" | "right" = "left";
-    let lastTime = 0;
-    let isPaused = false;
-    const delay = 2000;
-
-    const step = (time: number) => {
-      if (!containerRef.current || !textRef.current) return;
-
-      if (!lastTime) lastTime = time;
-      const deltaSeconds = (time - lastTime) / 1000;
-      lastTime = time;
-
-      const containerWidth = containerRef.current.clientWidth;
-      const textWidth = textRef.current.scrollWidth;
-      const distance = textWidth - containerWidth;
-      const maxOffset = -distance; // full scrollable distance
-      const speed = Math.max(20, distance / 6); // px/s
-
-      setOffset((prev) => {
-        const delta = speed * deltaSeconds;
-        const next = direction === "left" ? prev - delta : prev + delta;
-
-        if (direction === "left" && next <= maxOffset) {
-          if (!isPaused) {
-            isPaused = true;
-            cancelAnimationFrame(animationFrame);
-            timeoutId = window.setTimeout(() => {
-              direction = "right";
-              isPaused = false;
-              lastTime = 0;
-              animationFrame = requestAnimationFrame(step);
-            }, delay);
-          }
-          return maxOffset;
-        }
-
-        if (direction === "right" && next >= 0) {
-          if (!isPaused) {
-            isPaused = true;
-            cancelAnimationFrame(animationFrame);
-            timeoutId = window.setTimeout(() => {
-              direction = "left";
-              isPaused = false;
-              lastTime = 0;
-              animationFrame = requestAnimationFrame(step);
-            }, delay);
-          }
-          return 0;
-        }
-
-        return next;
-      });
-
-      if (!isPaused) {
-        animationFrame = requestAnimationFrame(step);
-      }
-    };
-
-    timeoutId = window.setTimeout(() => {
-      animationFrame = requestAnimationFrame(step);
-    }, delay);
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      clearTimeout(timeoutId);
-    };
-  }, [isOverflowing, text]);
-
-  return (
-    <div ref={containerRef} className="overflow-hidden whitespace-nowrap">
-      <p
-        ref={textRef}
-        className={`${className} inline-block`}
-        style={{ transform: `translateX(${offset}px)` }}
-      >
-        {text}
-      </p>
-    </div>
-  );
-}
-
-function ScrollingTrackInfo({
-  title,
-  subtitle,
-  titleClassName,
-  subtitleClassName,
-}: {
-  title: string;
-  subtitle: string;
-  titleClassName?: string;
-  subtitleClassName?: string;
-}) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLParagraphElement>(null);
-  const subtitleRef = useRef<HTMLParagraphElement>(null);
-  const [titleOffset, setTitleOffset] = useState(0);
-  const [subtitleOffset, setSubtitleOffset] = useState(0);
-  const [titleOverflow, setTitleOverflow] = useState(0);
-  const [subtitleOverflow, setSubtitleOverflow] = useState(0);
-
-  // Track current offsets with refs for animation loop
-  const currentTitleOffset = useRef(0);
-  const currentSubtitleOffset = useRef(0);
-
-  // Check overflow distances
-  useEffect(() => {
-    const checkOverflow = () => {
-      if (!containerRef.current || !titleRef.current || !subtitleRef.current)
-        return;
-
-      const containerWidth = containerRef.current.clientWidth;
-      const titleWidth = titleRef.current.scrollWidth;
-      const subtitleWidth = subtitleRef.current.scrollWidth;
-
-      setTitleOverflow(Math.max(0, titleWidth - containerWidth));
-      setSubtitleOverflow(Math.max(0, subtitleWidth - containerWidth));
-    };
-
-    checkOverflow();
-    window.addEventListener("resize", checkOverflow);
-    return () => window.removeEventListener("resize", checkOverflow);
-  }, [title, subtitle]);
-
-  // Coordinated scroll effect
-  useEffect(() => {
-    const maxOverflow = Math.max(titleOverflow, subtitleOverflow);
-    if (maxOverflow === 0) {
-      setTitleOffset(0);
-      setSubtitleOffset(0);
-      currentTitleOffset.current = 0;
-      currentSubtitleOffset.current = 0;
-      return;
-    }
-
-    let animationFrame: number;
-    let timeoutId: number;
-    let direction: "left" | "right" = "left";
-    let lastTime = 0;
-    let isPaused = false;
-    const delay = 2000;
-    const speed = Math.max(20, maxOverflow / 6); // px/s
-
-    const step = (time: number) => {
-      if (!lastTime) lastTime = time;
-      const deltaSeconds = (time - lastTime) / 1000;
-      lastTime = time;
-
-      const delta = speed * deltaSeconds;
-
-      // Update title offset
-      let newTitleOffset = currentTitleOffset.current;
-      if (direction === "left") {
-        newTitleOffset = Math.max(-titleOverflow, newTitleOffset - delta);
-      } else {
-        newTitleOffset = Math.min(0, newTitleOffset + delta);
-      }
-      currentTitleOffset.current = newTitleOffset;
-      setTitleOffset(newTitleOffset);
-
-      // Update subtitle offset
-      let newSubtitleOffset = currentSubtitleOffset.current;
-      if (direction === "left") {
-        newSubtitleOffset = Math.max(
-          -subtitleOverflow,
-          newSubtitleOffset - delta,
-        );
-      } else {
-        newSubtitleOffset = Math.min(0, newSubtitleOffset + delta);
-      }
-      currentSubtitleOffset.current = newSubtitleOffset;
-      setSubtitleOffset(newSubtitleOffset);
-
-      // Check if both have reached their limits
-      const titleAtEnd =
-        direction === "left"
-          ? newTitleOffset <= -titleOverflow
-          : newTitleOffset >= 0;
-      const subtitleAtEnd =
-        direction === "left"
-          ? newSubtitleOffset <= -subtitleOverflow
-          : newSubtitleOffset >= 0;
-
-      if (titleAtEnd && subtitleAtEnd && !isPaused) {
-        isPaused = true;
-        cancelAnimationFrame(animationFrame);
-        timeoutId = window.setTimeout(() => {
-          direction = direction === "left" ? "right" : "left";
-          isPaused = false;
-          lastTime = 0;
-          animationFrame = requestAnimationFrame(step);
-        }, delay);
-        return;
-      }
-
-      if (!isPaused) {
-        animationFrame = requestAnimationFrame(step);
-      }
-    };
-
-    timeoutId = window.setTimeout(() => {
-      animationFrame = requestAnimationFrame(step);
-    }, delay);
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      clearTimeout(timeoutId);
-    };
-  }, [titleOverflow, subtitleOverflow]);
-
-  return (
-    <>
-      <div ref={containerRef} className="overflow-hidden whitespace-nowrap">
-        <p
-          ref={titleRef}
-          className={`${titleClassName} inline-block`}
-          style={{ transform: `translateX(${titleOffset}px)` }}
-        >
-          {title}
-        </p>
-      </div>
-      <div className="overflow-hidden whitespace-nowrap">
-        <p
-          ref={subtitleRef}
-          className={`${subtitleClassName} inline-block`}
-          style={{ transform: `translateX(${subtitleOffset}px)` }}
-        >
-          {subtitle}
-        </p>
-      </div>
-    </>
-  );
-}
-
 function TrackCard({
   track,
   user,
@@ -301,7 +32,6 @@ function TrackCard({
   progressPercent,
   onTrackClick,
   onUserClick,
-  showFollowCta,
 }: {
   track: TrackInfo;
   user: UserInfo | null;
@@ -309,7 +39,6 @@ function TrackCard({
   progressPercent: number;
   onTrackClick: (track: TrackInfo | null) => void;
   onUserClick: (user: UserInfo | null) => void;
-  showFollowCta: boolean;
 }) {
   return (
     <div
@@ -324,10 +53,11 @@ function TrackCard({
         />
       </div>
       <div className="flex flex-col gap-2 w-52 sm:gap-0 sm:w-28">
-        <ScrollingText text={track.title} className="text-xl sm:text-lg" />
-        <ScrollingText
-          text={`${track.artist}`}
-          className="text-md text-gray-400 sm:text-[10px]"
+        <ScrollEffect
+          title={track.title}
+          subtitle={track.artist}
+          titleClassName="text-xl sm:text-lg"
+          subtitleClassName="text-md text-gray-400 sm:text-[10px]"
         />
         <div className="mt-2">
           <div className="h-1 w-full rounded-full bg-white/10">
@@ -344,7 +74,7 @@ function TrackCard({
       </div>
       <div
         onClick={() => onUserClick(user)}
-        className={`flex flex-row justify-between w-full${showFollowCta ? " cursor-pointer" : ""}`}
+        className="flex flex-row justify-between w-full"
       >
         <div className="flex flex-row gap-2">
           <img
@@ -352,22 +82,8 @@ function TrackCard({
             alt="User Profile"
             className="w-8 h-8 rounded-full"
           />
-          <div
-            className={`flex self-center ${showFollowCta ? "text-md" : "text-lg"}`}
-          >
-            {user?.displayName}
-          </div>
+          <div className="flex self-center">{user?.displayName}</div>
         </div>
-        {showFollowCta ? (
-          <div className="flex flex-row gap-2">
-            <div className="flex self-center text-md">Follow me</div>
-            <img
-              src="/icons/Spotify_icon.svg.png"
-              alt="Spotify Icon"
-              className="w-8 h-8"
-            />
-          </div>
-        ) : null}
       </div>
     </div>
   );
@@ -488,7 +204,6 @@ function MusicPlayer() {
             progressPercent={activeProgressPercent}
             onTrackClick={handleTrackClick}
             onUserClick={handleUserClick}
-            showFollowCta={isNowPlaying}
           />
           {!isNowPlaying ? (
             <h2 className="text-m text-center">Spotify</h2>

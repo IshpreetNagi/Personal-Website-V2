@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import ScrollEffect from "../ui/ScrollEffect";
 
 interface MovieData {
   title: string;
@@ -11,119 +12,6 @@ interface MovieData {
   runtime?: number | null;
   tmdb_score?: number | null;
   movie_link?: string | null;
-}
-
-function ScrollingMovieName({
-  title,
-  className,
-}: {
-  title: string;
-  className?: string;
-}) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const titleRef = useRef<HTMLParagraphElement>(null);
-  const [titleOffset, setTitleOffset] = useState(0);
-  const [titleOverflow, setTitleOverflow] = useState(0);
-
-  // Track current offsets with refs for animation loop
-  const currentTitleOffset = useRef(0);
-
-  // Check overflow distances
-  useEffect(() => {
-    const checkOverflow = () => {
-      if (!containerRef.current || !titleRef.current) return;
-
-      const containerWidth = containerRef.current.clientWidth;
-      const titleWidth = titleRef.current.scrollWidth;
-
-      setTitleOverflow(Math.max(0, titleWidth - containerWidth));
-    };
-
-    checkOverflow();
-    window.addEventListener("resize", checkOverflow);
-    return () => window.removeEventListener("resize", checkOverflow);
-  }, [title]);
-
-  // Coordinated scroll effect
-  useEffect(() => {
-    const maxOverflow = Math.max(titleOverflow);
-    if (maxOverflow === 0) {
-      setTitleOffset(0);
-      currentTitleOffset.current = 0;
-      return;
-    }
-
-    let animationFrame: number;
-    let timeoutId: number;
-    let direction: "left" | "right" = "left";
-    let lastTime = 0;
-    let isPaused = false;
-    const delay = 2000;
-    const speed = Math.max(20, maxOverflow / 6); // px/s
-
-    const step = (time: number) => {
-      if (!lastTime) lastTime = time;
-      const deltaSeconds = (time - lastTime) / 1000;
-      lastTime = time;
-
-      const delta = speed * deltaSeconds;
-
-      // Update title offset
-      let newTitleOffset = currentTitleOffset.current;
-      if (direction === "left") {
-        newTitleOffset = Math.max(-titleOverflow, newTitleOffset - delta);
-      } else {
-        newTitleOffset = Math.min(0, newTitleOffset + delta);
-      }
-      currentTitleOffset.current = newTitleOffset;
-      setTitleOffset(newTitleOffset);
-
-      // Check if both have reached their limits
-      const titleAtEnd =
-        direction === "left"
-          ? newTitleOffset <= -titleOverflow
-          : newTitleOffset >= 0;
-
-      if (titleAtEnd && !isPaused) {
-        isPaused = true;
-        cancelAnimationFrame(animationFrame);
-        timeoutId = window.setTimeout(() => {
-          direction = direction === "left" ? "right" : "left";
-          isPaused = false;
-          lastTime = 0;
-          animationFrame = requestAnimationFrame(step);
-        }, delay);
-        return;
-      }
-
-      if (!isPaused) {
-        animationFrame = requestAnimationFrame(step);
-      }
-    };
-
-    timeoutId = window.setTimeout(() => {
-      animationFrame = requestAnimationFrame(step);
-    }, delay);
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      clearTimeout(timeoutId);
-    };
-  }, [titleOverflow]);
-
-  return (
-    <>
-      <div ref={containerRef} className="overflow-hidden whitespace-nowrap">
-        <p
-          ref={titleRef}
-          className={`inline-block ${className || ""}`}
-          style={{ transform: `translateX(${titleOffset}px)` }}
-        >
-          {title}
-        </p>
-      </div>
-    </>
-  );
 }
 
 export default function MovieShower() {
@@ -188,7 +76,11 @@ export default function MovieShower() {
             </div>
             <div className="flex flex-col w-80 gap-6">
               <div className="flex flex-col gap-3">
-                <ScrollingMovieName title={movie.title} className="text-2xl" />
+                <ScrollEffect
+                  title={movie.title}
+                  subtitle=""
+                  titleClassName="text-2xl"
+                />
                 <div className="flex flex-col gap-1 text-md text-[rgb(153,170,187)]">
                   <div className="flex flex-row gap-5">
                     <div>
