@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Spotify from "./widgets/Spotify";
 import Movies from "./widgets/Movies";
 
 export default function HomePage() {
   const [picExpanded, setPicExpanded] = useState(false);
+
+  useEffect(() => {
+    // Load Twitter widget script
+    const script = document.createElement("script");
+    script.src = "https://platform.twitter.com/widgets.js";
+    script.async = true;
+    (script as any).charset = "utf-8";
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <div className="flex flex-col justify-start z-10 md:max-w-[550px] lg:scale-80">
@@ -80,6 +89,13 @@ export default function HomePage() {
               <div className="flex flex-row gap-11">
                 <Spotify />
                 <Movies />
+                <a
+                  className="twitter-timeline"
+                  href="https://twitter.com/socialish_?ref_src=twsrc%5Etfw"
+                  data-theme="dark"
+                >
+                  Tweets by socialish_
+                </a>
               </div>
             </motion.div>
           </div>
