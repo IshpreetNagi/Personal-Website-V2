@@ -33,7 +33,7 @@ const SocialIcons = () => (
       onClick={handleCopy}
       className="group underline-animation underline-animation-icon"
     >
-      <img src="/images/mail-64.png" className="w-8 h-8" />
+      <img src="/Icons/mail-64.png" className="w-8 h-8" />
       <div
         className="absolute left-full top-1/2 -translate-y-1/2 ml-2
                         bg-gray-800 text-white text-sm rounded py-1 px-2

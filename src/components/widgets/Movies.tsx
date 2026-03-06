@@ -128,7 +128,7 @@ export default function MovieShower() {
                 {movie.tmdb_score != null ? (
                   <div className="flex flex-row gap-0 items-center">
                     <img
-                      src="/images/tmdb_logo.png"
+                      src="/Icons/tmdb_logo.png"
                       alt="TMDB"
                       className="inline-block w-10 h-auto mr-2 align-middle"
                     />{" "}

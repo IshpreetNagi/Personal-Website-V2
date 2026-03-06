@@ -26,7 +26,7 @@ export default function Projects() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5 sm:w-28 sm:h-28 sm:px-0 md:px-0 md:w-56 md:h-56">
                     <img
-                      src={"/images/tempestuous_turrets.png"}
+                      src={"/Images/tempestuous_turrets.png"}
                       alt="Tempestuous Turrets Gameplay Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:w-28 sm:h-28 sm:rounded-xl md:w-56 md:h-56 md:rounded-2xl"
                     />
@@ -135,7 +135,7 @@ export default function Projects() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5 sm:w-28 sm:h-28 sm:px-0 md:px-0 md:w-56 md:h-56">
                     <img
-                      src={"/images/website_projectspage.png"}
+                      src={"/Images/website_projectspage.png"}
                       alt="Projects Page Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:w-28 sm:h-28 sm:rounded-xl md:w-56 md:h-56 md:rounded-2xl"
                     />
@@ -156,7 +156,7 @@ export default function Projects() {
                     <div className="flex flex-row gap-3 mt-7 sm:-mt-3 sm:gap-1 sm:scale-90 sm:origin-left md:scale-90 md:origin-top-left md:mt-6">
                       <div className="relative group inline-block">
                         <img
-                          src={"/images/astro-icon-light-gradient.svg"}
+                          src={"/Icons/astro-icon-light-gradient.svg"}
                           alt="Astro Icon"
                           className="w-8 h-8"
                         />
@@ -245,7 +245,7 @@ export default function Projects() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5 sm:w-28 sm:h-28 sm:px-0 md:px-0 md:w-56 md:h-56">
                     <img
-                      src={"/images/room_booking_portal.png"}
+                      src={"/Images/room_booking_portal.png"}
                       alt="Room Booking Portal Homepage Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:w-28 sm:h-28 sm:rounded-xl md:w-56 md:h-56 md:rounded-2xl"
                     />
@@ -342,7 +342,7 @@ export default function Projects() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5 sm:w-28 sm:h-28 sm:px-0 md:px-0 md:w-56 md:h-56">
                     <img
-                      src={"/images/python_arcade.JPG"}
+                      src={"/Images/python_arcade.JPG"}
                       alt="Arcade Games Emulator Homepage Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:w-28 sm:h-28 sm:rounded-xl md:w-56 md:h-56 md:rounded-2xl"
                     />

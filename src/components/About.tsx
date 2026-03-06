@@ -28,7 +28,7 @@ export default function HomePage() {
                   className="flex-shrink-0"
                 >
                   <img
-                    src={"/images/Last-Laugh.jpg"}
+                    src={"/Images/Last-Laugh.jpg"}
                     alt="Picture of Ishpreet"
                     className="rounded-3xl object-cover w-148 h-148 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:rounded-2xl sm:w-54 sm:h-54 md:w-112 md:h-112"
                   />

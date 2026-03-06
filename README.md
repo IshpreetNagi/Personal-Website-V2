@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/images/hand_waving.png" alt="Logo" width="80" height="80">
+  <img src="public/Icons/hand_waving.png" alt="Logo" width="80" height="80">
 <h3 align="center">Personal Website V2</h3>
 
   <p align="center">
