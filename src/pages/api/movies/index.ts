@@ -1,14 +1,17 @@
 // src/pages/api/latest-letterboxd.ts
 import type { APIRoute } from "astro";
 
-interface LatestLetterboxdResponse {
+interface MovieInfoResponse {
   title: string;
   poster: string | null;
   watched_date?: string;
+  my_rating?: number | null;
+  movie_link?: string | null;
   release_year?: string | null;
   description?: string | null;
   genres?: string[];
   runtime?: number | null;
+  tmdb_score?: number | null;
 }
 
 function extractPoster(item: any): string | null {
@@ -30,9 +33,23 @@ function extractYear(item: any): string | null {
   const title = item.title;
   if (!title) return null;
 
-  // Extract year from format: "Movie Name, 2024 - ★★★"
   const yearMatch = title.match(/,\s*(\d{4})/);
   return yearMatch ? yearMatch[1] : null;
+}
+
+function extractRating(item: any): number | null {
+  const title = item.title;
+  if (!title) return null;
+
+  const ratingMatch = title.match(/-\s*([★½]+)/);
+  if (!ratingMatch) return null;
+
+  const stars = ratingMatch[1];
+  const fullStars = (stars.match(/★/g) || []).length;
+  const halfStars = (stars.match(/½/g) || []).length;
+  const scoreOutOfTen = fullStars * 2 + halfStars;
+
+  return scoreOutOfTen > 0 ? scoreOutOfTen : null;
 }
 
 async function searchTmdbByNameAndYear(movieName: string, year: string | null) {
@@ -108,12 +125,16 @@ async function searchTmdbByNameAndYear(movieName: string, year: string | null) {
     description: data.overview ?? null,
     genres: data.genres?.map((g: any) => g.name) ?? [],
     runtime: data.runtime ?? null,
+    tmdb_score: data.vote_average
+      ? Math.round(data.vote_average * 10) / 10
+      : null,
+    movie_link: `https://www.themoviedb.org/movie/${match.id}`,
   };
 }
 
 // Cache storage
 let cache: {
-  data: LatestLetterboxdResponse | null;
+  data: MovieInfoResponse | null;
   timestamp: number;
 } = {
   data: null,
@@ -172,10 +193,11 @@ export const GET: APIRoute = async () => {
       tmdbInfo = await searchTmdbByNameAndYear(movieName, year);
     }
 
-    const response: LatestLetterboxdResponse = {
+    const response: MovieInfoResponse = {
       title: movieName || "",
       poster: extractPoster(latest),
       watched_date: latest.pubDate,
+      my_rating: extractRating(latest),
       ...tmdbInfo,
     };
 
