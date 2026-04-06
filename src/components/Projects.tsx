@@ -18,7 +18,7 @@ export default function Projects() {
 
           <div className="flex flex-row gap-20 justify-center items-center flex-wrap max-w-[1600px] sm:gap-6 sm:max-w-[500px] md:max-w-[550px] md:gap-10 lg:gap-10">
             <a
-              href="https://github.com/IshpreetNagi/Tempestuous-Turrets"
+              href="https://kollec.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -26,28 +26,29 @@ export default function Projects() {
                 <section className="flex items-center justify-start w-full h-full drop-shadow-md">
                   <div className="flex-shrink-0 w-72 h-64 items-center justify-center px-5 sm:w-28 sm:h-28 sm:px-0 md:px-0 md:w-56 md:h-56">
                     <img
-                      src={"/images/tempestuous_turrets.png"}
-                      alt="Tempestuous Turrets Gameplay Picture"
+                      src={"/images/Kollec_screenshot.png"}
+                      alt="Kollec Gameplay Picture"
                       className="rounded-3xl object-cover w-72 h-64 mx-auto shadow-lg border border-white/10 hover:scale-105 transition-transform duration-300 ease-in-out sm:w-28 sm:h-28 sm:rounded-xl md:w-56 md:h-56 md:rounded-2xl"
                     />
                   </div>
                   <div className="flex flex-col overflow-auto text-left pl-8 text-white self-start py-7 sm:py-0 sm:pl-4 sm:overflow-hidden">
                     <div className="text-xl font-semibold mt-4 mb-8 sm:text-sm sm:mt-0 sm:mb-1 md:-mt-3 md:mb-6">
-                      Tempestuous Turrets
+                      Kollec
                     </div>
                     <div className="text-base text-white/70 pr-8 flex-grow sm:hidden md:text-sm">
-                      A point and click local multiplayer game where you battle
-                      others across various battlefields to be the last turret
-                      standing!
+                      Kollec is a secure and centralized card collection
+                      platform built for collectors by collectors. We're
+                      starting not so small with Pokémon cards!
                     </div>
                     <div className="hidden text-base text-white/70 pr-8 flex-grow sm:text-xs sm:pr-0 sm:scale-75 sm:origin-top-left sm:block">
-                      A point and click local multiplayer game.
+                      Kollec is a secure and centralized card collection
+                      platform.
                     </div>
                     <div className="flex flex-row gap-3 mt-7 sm:-mt-2 sm:gap-1 md:scale-90 md:origin-top-left md:mt-6">
                       <div className="relative group inline-block">
                         <img
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-plain.svg"
-                          alt="C# Icon"
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/capacitor/capacitor-plain.svg"
+                          alt="Capacitor Icon"
                           className="w-8 h-8"
                         />
                         <div
@@ -56,13 +57,13 @@ export default function Projects() {
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50"
                         >
-                          C#
+                          Capacitor
                         </div>
                       </div>
                       <div className="relative group inline-block">
                         <img
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg"
-                          alt="Unity Icon"
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+                          alt="Next.js Icon"
                           className="w-8 h-8"
                         />
                         <div
@@ -71,13 +72,13 @@ export default function Projects() {
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50"
                         >
-                          Unity
+                          Next.js
                         </div>
                       </div>
                       <div className="relative group inline-block">
                         <img
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
-                          alt="Git Icon"
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chakraui/chakraui-original.svg"
+                          alt="Chakra UI Icon"
                           className="w-8 h-8"
                         />
                         <div
@@ -86,13 +87,13 @@ export default function Projects() {
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50"
                         >
-                          Git
+                          Chakra UI
                         </div>
                       </div>
                       <div className="relative group inline-block">
                         <img
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg"
-                          alt="Azure Icon"
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg"
+                          alt="Vercel Icon"
                           className="w-8 h-8"
                         />
                         <div
@@ -101,13 +102,13 @@ export default function Projects() {
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50"
                         >
-                          Azure
+                          Vercel
                         </div>
                       </div>
                       <div className="relative group inline-block">
                         <img
-                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
-                          alt="Photoshop Icon"
+                          src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg"
+                          alt="Supabase Icon"
                           className="w-8 h-8"
                         />
                         <div
@@ -116,7 +117,7 @@ export default function Projects() {
                                         opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                         transition-opacity duration-300 whitespace-nowrap z-50"
                         >
-                          Photoshop
+                          Supabase
                         </div>
                       </div>
                     </div>
